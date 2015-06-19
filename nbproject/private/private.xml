@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/wamp/www/news/application/models/db_model.php</file>
+            <file>file:/C:/wamp/www/news/application/views/dashboard/news/add_news.php</file>
+            <file>file:/C:/wamp/www/news/application/views/dashboard/categories/edit.php</file>
+            <file>file:/C:/wamp/www/news/application/controllers/dashboard.php</file>
+            <file>file:/C:/wamp/www/news/application/views/dashboard/news/news_edit.php</file>
+            <file>file:/C:/wamp/www/news/application/views/dashboard/news/all_news.php</file>
+            <file>file:/C:/wamp/www/news/application/controllers/view.php</file>
+        </group>
+    </open-files>
+</project-private>
