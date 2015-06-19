@@ -19,7 +19,7 @@
                 <?php }
                  if(isset($error)){ echo $error;}?>
 <?php echo form_open_multipart('dashboard/insert_news'); ?>
-<input type="text" name="title" value="<?php echo set_value('title'); ?>" required/>
+<input type="text" name="title" value="<?php echo set_value('title'); ?>" required/><br/>
 <textarea name="summary" required><?php echo set_value('summary'); ?> </textarea>
 <select name="category">
     <?php
