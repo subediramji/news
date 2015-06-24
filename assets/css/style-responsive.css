@@ -5,7 +5,11 @@
 	.container-fluid-full {
 		overflow: hidden;
 		position: relative;
+<<<<<<< HEAD
 		height: 100%;
+=======
+		height: auto;
+>>>>>>> origin/master
 	}
 	
 	#content {

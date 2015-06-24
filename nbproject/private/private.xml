@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/wamp/www/news/application/config/config.php</file>
             <file>file:/C:/wamp/www/news/application/views/dashboard/login/login.php</file>
             <file>file:/C:/wamp/www/news/application/controllers/dashboard.php</file>
             <file>file:/C:/wamp/www/news/assets/view/css/loginn.css</file>
             <file>file:/C:/wamp/www/news/application/views/main/index.php</file>
+=======
+            <file>file:/C:/xampp/htdocs/news/assets/css/style-responsive.css</file>
+            <file>file:/C:/xampp/htdocs/news/application/views/dashboard/news/add_news.php</file>
+>>>>>>> origin/master
         </group>
     </open-files>
 </project-private>
