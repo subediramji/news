@@ -1611,6 +1611,7 @@ input[type="button"].btn-block {
 	background-image: none;
 	filter: none;
 	text-shadow: none;
+        
 }
 
 .btn:hover,
@@ -1636,6 +1637,7 @@ fieldset[disabled] .btn:active {
 .btn-primary {
   background-color: #2D89EF;
   border-color: #2D89EF;
+  width: 225px;
 }
 
 .btn-primary:hover,
@@ -1711,6 +1713,7 @@ fieldset[disabled] .btn-danger:active {
 .btn-success {
   background-color: #00A300;
   border-color: #00A300;
+  width: 225px;
 }
 
 .btn-success:hover,

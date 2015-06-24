@@ -25,7 +25,7 @@
 				<div class="span2" onTablet="span4" onDesktop="span2">
                 	<div class="circleStatsItemBox yellow">
 						<div class="header">Total News</div>
-						<span class="percent">percent</span>
+<!--						<span class="percent">percent</span>-->
 						<div class="circleStat">
                     		<input type="text" value="<?php echo $count_news; ?>" class="whiteCircle" />
 						</div>		
@@ -36,7 +36,7 @@
 				<div class="span2" onTablet="span4" onDesktop="span2">
                 	<div class="circleStatsItemBox green">
 						<div class="header">Total Categories</div>
-						<span class="percent">percent</span>
+<!--						<span class="percent">percent</span>-->
 						<div class="circleStat">
                     		<input type="text" value="<?php echo $count_cat; ?>" class="whiteCircle" />
 						</div>

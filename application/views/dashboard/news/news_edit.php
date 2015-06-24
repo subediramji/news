@@ -27,27 +27,35 @@ foreach ($news_id as $n)
     $summary = $n->summary;
     $image = $n->image;
     $category = $n->c_id;
-}}else{
-    $id = "";
-    $title = "";
-    $summary = "";
-    $image = "";
-    $category = "";
 }
 echo form_open_multipart('dashboard/news_update'); ?>
 <input type="hidden" name="id" value="<?php echo $id; ?>" />
+<label>Title</label>
+<?php echo form_error('title'); ?>
 <input type="text" name="title" value="<?php echo $title;?>" />
+<label>Summary</label>
+<?php echo form_error('summary'); ?>
 <textarea name="summary"><?php echo $summary; ?></textarea>
+<label>Current Image</label>
 <input type="hidden" name="old_img" value="<?php echo $image; ?>" />
-<img src="<?php echo base_url()."/upload/thumb_".$image; ?>" alt="img" />
+<img src="<?php echo base_url()."/upload/thumb_".$image; ?>" alt="Image not set" />
+<br>
+<span class="label label-info"><b>Note :</b> Only image is allowed other files not uploaded !</span>
+<label>Image</label>
 <input type="file" name="userfile" />
+<label>Select Categories</label>
 <select name="category">
     <?php foreach ($all_cat as $a){ ?>
     <option value="<?php echo $a->id; ?>" <?php if(($a->id)==$category){ echo 'selected=selected';} ?>> <?php echo $a->name; ?></option>
     <?php }?>
 </select>
-<input type="submit" value="Update" />
-<?php echo form_close(); ?>
+<br>
+<button type="submit" class="btn btn-primary" >Update</button>
+<?php echo form_close(); 
+}else{
+    echo '<div class="alert alert-error"> Sorry Page Note Found!</div>';
+}
+?>
 </div>
 	</div><!--/#content.span10-->
 		</div>

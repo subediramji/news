@@ -16,8 +16,12 @@
                 </div>
                 <?php } ?>
 <?php echo form_open('dashboard/insert_categories'); ?>
-<input type="text" name="categories_name" />
-<input type="submit" value="Add Category" />
+<br>
+<label>Categories Name</label>
+<?php echo form_error('categories_name'); ?>
+<input type="text" name="categories_name" placeholder="Categories Name" value="<?php echo set_value('categories_name'); ?>" />
+<br>
+<button type="submit" class="btn btn-success" value="Add Category" >Add Categories </button>
 <?php echo form_close(); ?>
 </div>
 	</div><!--/#content.span10-->

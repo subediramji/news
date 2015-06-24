@@ -705,11 +705,11 @@ function circle_progess() {
 		
 		$(".whiteCircle").knob({
 	        'min':0,
-	        'max':100,
+	        'max':10000,
 	        'readOnly': true,
 	        'width': 240,
 	        'height': 240,
-			'bgColor': 'rgba(255,255,255,0.5)',
+		'bgColor': 'rgba(255,255,255,0.5)',
 	        'fgColor': 'rgba(255,255,255,0.9)',
 	        'dynamicDraw': true,
 	        'thickness': 0.2,
@@ -724,7 +724,7 @@ function circle_progess() {
 		
 		$(".whiteCircle").knob({
 	        'min':0,
-	        'max':100,
+	        'max':10000,
 	        'readOnly': true,
 	        'width': 120,
 	        'height': 120,

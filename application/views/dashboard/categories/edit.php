@@ -30,8 +30,11 @@ foreach ($cat_id as $a)
 }
 echo form_open('dashboard/update_cat'); ?>
 <input type="hidden" name="id" value="<?php echo $id; ?>"/>
+<label>Categories Name</label>
+<?php echo form_error('title'); ?>
 <input type="text" name="title" value="<?php echo $name; ?>" />
-<input type="submit" value="Update" />
+<br>
+<button type="submit" class="btn btn-primary" >Update</button>
 <?php echo form_close(); ?> 
 </div>
 	</div><!--/#content.span10-->
