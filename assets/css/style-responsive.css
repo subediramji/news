@@ -5,7 +5,7 @@
 	.container-fluid-full {
 		overflow: hidden;
 		position: relative;
-		height: 575px;
+		height: auto;
 	}
 	
 	#content {
