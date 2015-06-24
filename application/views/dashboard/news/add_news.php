@@ -1,5 +1,6 @@
 <div id="content" class="span10">
     <ul class="breadcrumb">
+<<<<<<< HEAD
         <li>
             <i class="icon-home"></i>
             <a href="<?php echo base_url() . "index.php/dashboard" ?>">Home</a> 
@@ -17,6 +18,30 @@
             <?php print_r($msg);
             ?>
         </div>
+=======
+				<li>
+					<i class="icon-home"></i>
+                                        <a href="<?php echo base_url()."index.php/dashboard" ?>">Home</a> 
+					<i class="icon-angle-right"></i>
+				</li>
+				<li><a href="#">Add News</a></li>
+			</ul>
+<h1>Add News</h1>
+<?php $msg = $this->session->flashdata('msg'); if((isset($msg)) && (!empty($msg))) { ?>
+                <div class="alert alert-success" >
+
+                  <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <?php print_r($msg); 
+               
+                ?>
+                </div>
+                <?php }
+                 if(isset($error)){ echo $error;}?>
+<?php echo form_open_multipart('dashboard/insert_news'); ?>
+<input type="text" name="title" value="<?php echo set_value('title'); ?>" required/><br/>
+<textarea name="summary" required><?php echo set_value('summary'); ?> </textarea>
+<select name="category">
+>>>>>>> origin/master
     <?php
     }
     if (isset($error)) {
@@ -93,4 +118,10 @@
     </div>
 
 <?php echo form_close(); ?>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+	</div><!--/#content.span10-->
+		</div>
+>>>>>>> origin/master
