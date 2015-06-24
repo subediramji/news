@@ -2,7 +2,7 @@
     <ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-                                        <a href="<?php echo base_url()."index.php/dashboard" ?>">Home</a> 
+                                        <a href="<?php echo base_url()."dashboard/home" ?>">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
 				<li><a href="#">Edit News</a></li>
@@ -26,8 +26,13 @@ foreach ($news_id as $n)
     $title = $n->title;
     $summary = $n->summary;
     $image = $n->image;
-    $category = $n->c_id;
+    $cate = $n->c_id;
 }
+var_dump($cate);
+$category = explode(",",$cate);
+print_r($category);
+print_r(array($category[0]));
+
 echo form_open_multipart('dashboard/news_update'); ?>
 <input type="hidden" name="id" value="<?php echo $id; ?>" />
 <label>Title</label>
@@ -44,11 +49,15 @@ echo form_open_multipart('dashboard/news_update'); ?>
 <label>Image</label>
 <input type="file" name="userfile" />
 <label>Select Categories</label>
-<select name="category">
-    <?php foreach ($all_cat as $a){ ?>
-    <option value="<?php echo $a->id; ?>" <?php if(($a->id)==$category){ echo 'selected=selected';} ?>> <?php echo $a->name; ?></option>
-    <?php }?>
-</select>
+<?php echo form_error('category[]'); ?>
+<?php
+                                $all_cat = $this->db_model->all_cat();
+                                $i=1;
+                                foreach ($all_cat as $a) {
+                                  ?>
+<input type="checkbox" name="category[]" value="<?php echo $a->id;?>" >
+                                    <?php echo $a->name; ?> <br>
+                                <?php  }?>
 <br>
 <button type="submit" class="btn btn-primary" >Update</button>
 <?php echo form_close(); 

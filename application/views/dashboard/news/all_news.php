@@ -2,7 +2,7 @@
     <ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-                                        <a href="<?php echo base_url()."index.php/dashboard" ?>">Home</a> 
+                                        <a href="<?php echo base_url()."dashboard/home" ?>">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
 				<li><a href="#">All News</a></li>
@@ -53,10 +53,13 @@
             ?>
         </td>
         <td class="center">
-            <a class="btn btn-info" href="<?php echo base_url()."index.php/dashboard/editnews/".$news->id; ?>">
+             <a class="btn btn-inverse" href="<?php echo base_url() ?>">
+	<i class="halflings-icon white home"></i>  
+	</a>
+            <a class="btn btn-info" href="<?php echo base_url()."dashboard/editnews/".$news->id; ?>">
 	<i class="halflings-icon white edit"></i>  
 	</a>
-            <a class="btn btn-danger" href="<?php echo base_url()."index.php/dashboard/deletenews/".$news->id; ?>">
+            <a class="btn btn-danger" href="<?php echo base_url()."dashboard/deletenews/".$news->id; ?>">
 										<i class="halflings-icon white trash"></i> 
 									</a></td>
     </tr>

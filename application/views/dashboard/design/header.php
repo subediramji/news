@@ -35,7 +35,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-                            <a class="brand" href="<?php echo base_url();?>index.php/dashboard"><span>News Portal</span></a>
+                            <a class="brand" href="<?php echo base_url();?>dashboard/home"><span>News Portal</span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">

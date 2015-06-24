@@ -12,7 +12,7 @@ class Dashboard extends CI_Controller {
         $this->load->view('dashboard/login/login');
     }
 
-    public function indexs() {
+    public function home() {
         $data['count_news'] = $this->db_model->count_news();
         $data['count_cat'] = $this->db_model->count_cat();
         $this->load->view('dashboard/design/header');
@@ -76,6 +76,8 @@ class Dashboard extends CI_Controller {
         $this->form_validation->set_error_delimiters('<div class="error" style="color:red;">', '</div>');
         $this->form_validation->set_rules('title', 'Title', 'required|min_length[5]|max_length[15]');
         $this->form_validation->set_rules('summary', 'Summary', 'required|min_length[5]');
+        $this->form_validation->set_rules('category[]', 'Categories', 'required');
+        
         if ($this->form_validation->run() == FALSE) {
           $id = $this->input->post('id');
             $data['news_id'] = $this->db_model->all_news_id($id);
@@ -86,13 +88,17 @@ class Dashboard extends CI_Controller {
             $this->load->view('dashboard/design/footer');
         } else {
           if (!$this->upload->do_upload()) {
+              $cate = $this->input->post('category');
+               $chk = implode(",",$cate);
                 $id = $this->input->post('id');
                 $image = $this->input->post('old_img');
-                $data = array('title' => $this->input->post('title'), 'summary' => $this->input->post('summary'), 'image' => $image, 'c_id' => $this->input->post('category'));
+                $data = array('title' => $this->input->post('title'), 'summary' => $this->input->post('summary'), 'image' => $image, 'c_id' => $chk);
                 $this->db_model->update_news($data, $id);
                 $this->session->set_flashdata('msg', ' news update sucessfully');
                 redirect('dashboard/all_news');
             } else {
+                $cate = $this->input->post('category');
+               $chk = implode(",",$cate);
                 $config['upload_path'] = './upload/';
                 $config['allowed_types'] = 'gif|jpg|png';
                 $this->load->library('upload', $config);
@@ -108,7 +114,7 @@ class Dashboard extends CI_Controller {
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
                 $id = $this->input->post('id');
-                $data = array('title' => $this->input->post('title'), 'summary' => $this->input->post('summary'), 'image' => $image, 'c_id' => $this->input->post('category'));
+                $data = array('title' => $this->input->post('title'), 'summary' => $this->input->post('summary'), 'image' => $image, 'c_id' => $chk);
                $result = $this->db_model->update_news($data, $id);
                  if ($result == TRUE) {
             $this->session->set_flashdata('msg', "News Update Successfully");
@@ -130,6 +136,7 @@ class Dashboard extends CI_Controller {
         $this->form_validation->set_error_delimiters('<div class="error" style="color:red;">', '</div>');
         $this->form_validation->set_rules('title', 'Title', 'required|min_length[5]|max_length[15]');
         $this->form_validation->set_rules('summary', 'Summary', 'required|min_length[5]');
+        $this->form_validation->set_rules('category[]', 'Categories', 'required');
         if ($this->form_validation->run() == FALSE) {
               $this->load->view('dashboard/design/header');
             $this->load->view('dashboard/design/left');
@@ -137,12 +144,19 @@ class Dashboard extends CI_Controller {
             $this->load->view('dashboard/design/footer');
         } else {
             if (!$this->upload->do_upload()) {
+                $cate = $this->input->post('category');
+               $chk = implode(",",$cate);
+               //var_dump($chk);
+               
                 $image = " ";
-                $data = array('title' => $this->input->post('title'), 'summary' => $this->input->post('summary'), 'image' => $image, 'c_id' => $this->input->post('category'));
+                $data = array('title' => $this->input->post('title'), 'summary' => $this->input->post('summary'), 'image' => $image, 'c_id' => $chk);
                 $this->db_model->insert_news($data);
                 $this->session->set_flashdata('msg', 'One news added sucessfully');
                 redirect('dashboard/add_news');
             } else{
+                 $cate = $this->input->post('category');
+               // $checkbox1=$_POST['techno'];  
+                $chk = implode(",",$cate);
                 $dataimg = array('upload_data' => $this->upload->data());
                 $image = $dataimg['upload_data']['file_name'];
                 $image_thumb = dirname('thumb_' . $image . '/demo');
@@ -154,7 +168,7 @@ class Dashboard extends CI_Controller {
                 $config['height'] = 50;
                 $this->load->library('image_lib', $config);
                 $this->image_lib->resize();
-                $data = array('title' => $this->input->post('title'), 'summary' => $this->input->post('summary'), 'image' => $image, 'c_id' => $this->input->post('category'));
+                $data = array('title' => $this->input->post('title'), 'summary' => $this->input->post('summary'), 'image' => $image, 'c_id' => $chk);
                 $result = $this->db_model->insert_news($data);
                 if ($result == TRUE) {
                 $this->session->set_flashdata('msg', "News Added Successfully");
