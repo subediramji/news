@@ -52,12 +52,20 @@ echo form_open_multipart('dashboard/news_update'); ?>
 <?php echo form_error('category[]'); ?>
 <?php
                                 $all_cat = $this->db_model->all_cat();
-                                $i=1;
+                                $i=0;
                                 foreach ($all_cat as $a) {
-                                  ?>
-<input type="checkbox" name="category[]" value="<?php echo $a->id;?>" >
+                                    foreach ($category as  $c[$i]) {
+                                       // var_dump(in_array($i, $category));
+                                        if($a->id==$c[$i]){?>
+<input type="checkbox" name="category[]" value="<?php echo $a->id;?>" checked="checked" >
                                     <?php echo $a->name; ?> <br>
-                                <?php  }?>
+                                        <?php  }
+                                        
+                                        if($a->id==!$c[$i]){ ?>
+                                            <input type="checkbox" name="category[]" value="<?php echo $a->id;?>"  >
+                                    <?php echo $a->name; ?> <br>
+                                       <?php }$i++;
+                                        }}?>
 <br>
 <button type="submit" class="btn btn-primary" >Update</button>
 <?php echo form_close(); 

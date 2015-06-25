@@ -7,40 +7,51 @@ class Dashboard extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper(array('form'));
     }
-    function index()
-    {
-        $this->load->view('dashboard/login/login');
-    }
-
+     
     public function home() {
-        $data['count_news'] = $this->db_model->count_news();
+        if ($this->session->userdata('is_logged_in')) {
+           $data['count_news'] = $this->db_model->count_news();
         $data['count_cat'] = $this->db_model->count_cat();
         $this->load->view('dashboard/design/header');
         $this->load->view('dashboard/design/left');
         $this->load->view('dashboard/index', $data);
         $this->load->view('dashboard/design/footer');
-    }
+        } else {
+            redirect('login');
+        }
+            }
     //===============START LOGIN PART ========================== 
     
     
     //===============CLOSED LOGIN PART =========================
     //============== START NEWS PART ==========================
     public function add_news() {
-        $data['all_cat'] = $this->db_model->all_cat();
+        if ($this->session->userdata('is_logged_in')) {
+           $data['all_cat'] = $this->db_model->all_cat();
         $this->load->view('dashboard/design/header');
         $this->load->view('dashboard/design/left');
         $this->load->view('dashboard/news/add_news', $data);
         $this->load->view('dashboard/design/footer');
+        } else {
+            redirect('login');
+        }
+        
     }
     public function all_news() {
-        $data['all_news'] = $this->db_model->all_news();
+        if ($this->session->userdata('is_logged_in')) {
+            $data['all_news'] = $this->db_model->all_news();
         $this->load->view('dashboard/design/header');
         $this->load->view('dashboard/design/left');
         $this->load->view('dashboard/news/all_news', $data);
         $this->load->view('dashboard/design/footer');
+        } else {
+            redirect('login');
+        }
+        
     }
     function deletenews($id = NULL) {
-        if (isset($id)) {
+        if ($this->session->userdata('is_logged_in')) {
+           if (isset($id)) {
             $data['news_id'] = $this->db_model->all_news_id($id);
             foreach ($data['news_id'] as $a) {
                 $img = $a->image;
@@ -59,17 +70,27 @@ class Dashboard extends CI_Controller {
             echo 'sorry file not found';
         }
         redirect('dashboard/all_news');
+        } else {
+            redirect('login');
+        }
+        
     }
     function editnews($id = NULL) {
-        $data['news_id'] = $this->db_model->all_news_id($id);
+        if ($this->session->userdata('is_logged_in')) {
+            $data['news_id'] = $this->db_model->all_news_id($id);
         $data['all_cat'] = $this->db_model->all_cat();     
         $this->load->view('dashboard/design/header');
         $this->load->view('dashboard/design/left');
         $this->load->view('dashboard/news/news_edit', $data);
         $this->load->view('dashboard/design/footer');
+        } else {
+            redirect('login');
+        }
+        
     }
     function news_update() {
-        $config['upload_path'] = './upload/';
+        if ($this->session->userdata('is_logged_in')) {
+            $config['upload_path'] = './upload/';
         $config['allowed_types'] = 'gif|jpg|png';
         $this->load->library('upload', $config);
         $this->load->library('form_validation');
@@ -126,10 +147,15 @@ class Dashboard extends CI_Controller {
             
         }            
             }
+        } else {
+            redirect('login');
+        }
+        
            
     }
     function insert_news() {
-        $config['upload_path'] = './upload/';
+        if ($this->session->userdata('is_logged_in')) {
+            $config['upload_path'] = './upload/';
         $config['allowed_types'] = 'gif|jpg|png';
         $this->load->library('upload', $config);
         $this->load->library('form_validation');
@@ -178,24 +204,39 @@ class Dashboard extends CI_Controller {
             }                
             }            
             
-        }        
+        }
+        } else {
+            redirect('login');
+        }
+                
     }
     //============== END NEWS PART =============================
     //============== STATR CATERORIES PART======================
     public function all_categories() {
-        $data['all_cat'] = $this->db_model->all_cat();
+        if ($this->session->userdata('is_logged_in')) {
+            $data['all_cat'] = $this->db_model->all_cat();
         $this->load->view('dashboard/design/header');
         $this->load->view('dashboard/design/left');
         $this->load->view('dashboard/categories/all_categories', $data);
         $this->load->view('dashboard/design/footer');
+        } else {
+            redirect('login');
+        }
+        
     }
     public function add_categories() {
-        $this->load->view('dashboard/design/header');
+        if ($this->session->userdata('is_logged_in')) {
+            $this->load->view('dashboard/design/header');
         $this->load->view('dashboard/design/left');
         $this->load->view('dashboard/categories/add_categories');
         $this->load->view('dashboard/design/footer');
+        } else {
+            redirect('login');
+        }
+        
     }
     public function insert_categories() {
+        if ($this->session->userdata('is_logged_in')) {
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="error" style="color:red;">', '</div>');
         $this->form_validation->set_rules('categories_name', 'Name', 'required|min_length[5]|max_length[15]');
@@ -214,9 +255,14 @@ class Dashboard extends CI_Controller {
             }
             redirect('dashboard/add_categories');
         }
+        } else {
+            redirect('login');
+        }
+        
     }
     function deletecat($id = NULL) {
-        if (isset($id)) {
+        if ($this->session->userdata('is_logged_in')) {
+            if (isset($id)) {
             $result = $this->db_model->delcat($id);
             if ($result == TRUE) {
                 $this->session->set_flashdata('msg', "Category Delete Successfully");
@@ -227,16 +273,26 @@ class Dashboard extends CI_Controller {
             echo 'sorry file not found';
         }
         redirect('dashboard/all_categories');
+        } else {
+            redirect('login');
+        }
+        
     }
     function editcate($id = NULL) {
-        $data['cat_id'] = $this->db_model->all_cat_id($id);
+        if ($this->session->userdata('is_logged_in')) {
+            $data['cat_id'] = $this->db_model->all_cat_id($id);
         $this->load->view('dashboard/design/header');
         $this->load->view('dashboard/design/left');
         $this->load->view('dashboard/categories/edit', $data);
         $this->load->view('dashboard/design/footer');
+        } else {
+            redirect('login');
+        }
+        
     }
     function update_cat() {
-        $this->load->library('form_validation');
+        if ($this->session->userdata('is_logged_in')) {
+            $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="error" style="color:red;">', '</div>');
         $this->form_validation->set_rules('title', 'Name', 'required|min_length[5]|max_length[15]');
         if ($this->form_validation->run() == FALSE) {
@@ -260,5 +316,9 @@ class Dashboard extends CI_Controller {
            $this->session->set_flashdata('msg', "Category Not Update");
        }
         }      
-    }
-}
+    
+        } else {
+            redirect('login');
+        }
+        
+}}
