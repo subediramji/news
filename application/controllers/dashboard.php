@@ -8,7 +8,7 @@ class Dashboard extends CI_Controller {
         $this->load->helper(array('form'));
     }
      
-    public function home() {
+    public function index() {
         if ($this->session->userdata('is_logged_in')) {
            $data['count_news'] = $this->db_model->count_news();
         $data['count_cat'] = $this->db_model->count_cat();
@@ -160,7 +160,7 @@ class Dashboard extends CI_Controller {
         $this->load->library('upload', $config);
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="error" style="color:red;">', '</div>');
-        $this->form_validation->set_rules('title', 'Title', 'required|min_length[5]|max_length[15]');
+        $this->form_validation->set_rules('title', 'Title', 'required|min_length[3]');
         $this->form_validation->set_rules('summary', 'Summary', 'required|min_length[5]');
         $this->form_validation->set_rules('category[]', 'Categories', 'required');
         if ($this->form_validation->run() == FALSE) {

@@ -1,42 +1,6 @@
-/*----------------------------------------------------------------------
-Theme Name: SuperNews 
-Author: themejunkie
-URI: http://themeforest.net/user/themejunkie
-Description: Ultimate HTML5 Magazine Template
-Version: 1.0
----------------------------------------------------------------------*/
-/*-----------------------------------------------------------------------
-[Table of contents]
+@import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700");
 
-1. Reset
-2. Basic
-3. Structure
-4. Header
-5. Navigation
-6. Content
-	-6.1 News Ticker
-	-6.2 Carousel #0 / Featured Content
-	-6.3 Featured Content #2
-	-6.4 Content Blocks
-	-6.5 Carousel #1
-	-6.6 Pagination
-	-6.7 Singular
-	-6.8 Comments
-7. Sidebar
-8. Footer
-9. WooCommerce
-	-9.1 Products
-	-9.2 Single Product
-	-9.3 Cart
-10. Misc
-	-10.1 Layouts
-	-10.2 Social Icons
-	-10.3 Forms
----------------------------------------------------------------------- */
-/**
- * 1. Reset
- * -----------------------------------------------------------------------------
- */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -982,7 +946,7 @@ a:active {
 }
 #featured-content .entry-thumbnail {
 	width: 728px;
-	height: auto;
+	height: 410px;
 	margin: 0 0 10px 0;
 }
 #featured-content #carousel-0 {
@@ -1156,6 +1120,7 @@ a:active {
 	margin-right: 0;
 }
 .content-block-1 li .entry-thumbnail {
+    height: 150px;
 	width: 100%;
 	margin-bottom: 10px;
 }

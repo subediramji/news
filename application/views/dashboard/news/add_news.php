@@ -7,6 +7,15 @@
         </li>
         <li><a href="#">Add News</a></li>
     </ul>
+    <?php $msg = $this->session->flashdata('msg'); if((isset($msg)) && (!empty($msg))) { ?>
+                <div class="alert alert-success" >
+
+                  <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <?php print_r($msg); 
+                ?>
+                </div>
+                <?php } ?>
+
     <?php echo form_open_multipart('dashboard/insert_news'); ?>
     <div class="row-fluid sortable ui-sortable">
         <div class="box span12">

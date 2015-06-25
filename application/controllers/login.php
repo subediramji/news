@@ -11,7 +11,7 @@ class Login extends CI_Controller {
 
     function index() {
         if ($this->session->userdata('is_logged_in')) {
-            redirect('dashboard/home');
+            redirect('dashboard');
         } else {
             $this->load->view('dashboard/login/login');
         }
@@ -50,7 +50,7 @@ class Login extends CI_Controller {
             );
 		//	print_r($data);
             $this->session->set_userdata($data); /*Here you can set the values in session */
-            redirect('dashboard/home');   
+            redirect('dasbhoard');   
         } else { // incorrect username or password
             $this->session->set_flashdata('msg', 'Username or Password Incorrect');
             $this->index();
@@ -106,7 +106,7 @@ class Login extends CI_Controller {
             );
 		//	print_r($data);
             $this->session->set_userdata($data); /*Here you can set the values in session */
-            redirect('dashboard/home');
+            redirect('dasbhoard');
                     }else{
                         $this->index();
                     }

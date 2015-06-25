@@ -29,7 +29,40 @@
             return ($this->db->affected_rows() != 1 ) ? false : true;
         }
 
+//============================== QUERY FOR VIEW ======================
+    function getHeadlines()
+    {
+        $id = '16';
+        $this->db->where('c_id',$id);
+        $query = $this->db->get('news');
+        return $query->result();
+        
+    }
+    function getSlider()
+    {
+        $id = '17';
+        $this->db->where('c_id',$id);
+        $query = $this->db->get('news');
+        return $query->result();
+    }
+    
+    function getTechnplogy()
+    {
+        $id = '14';
+        $this->db->where('c_id',$id);
+        $query = $this->db->get('news');
+        return $query->result();
+    }
+    
+    function letestNews()
+    {   $this->db->order_by("id", "desc");
+         //$this->db->where('c_id',$id);
+        $query = $this->db->get('news',3);
+        return $query->result();
+    }
 
+
+    //========================= END QUERY FOR VIEW ================
 
         //================ CATEGORY PART ============================
     function insert_categories($categories_name) {
