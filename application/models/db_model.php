@@ -35,7 +35,7 @@
         $id = '16';
         $this->db->order_by("id", "desc");
         $this->db->where('c_id',$id);
-        $query = $this->db->get('news',5);
+        $query = $this->db->get('news',6);
         return $query->result();
         
     }
@@ -53,7 +53,7 @@
         $id = '14';
         $this->db->where('c_id',$id);
         $this->db->order_by("id", "desc");
-        $query = $this->db->get('news',6);
+        $query = $this->db->get('news',3);
         return $query->result();
     }
     

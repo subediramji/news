@@ -28,9 +28,7 @@ foreach ($news_id as $n)
     $image = $n->image;
     $cate = $n->c_id;
 }
-
 $category = explode(",",$cate);
-
 echo form_open_multipart('dashboard/news_update'); ?>
 <input type="hidden" name="id" value="<?php echo $id; ?>" />
 <label>Title</label>

@@ -35,7 +35,7 @@
 </div><br/>
 <div class="sign">
 <div class="need">Need new account ?</div>
-<div class="up"><a href="#">Create </a></div>
+<div class="up"><a href="#">Register </a></div>
 </div>
 </div>
     <div class="form" id="registration" style="display: none;">

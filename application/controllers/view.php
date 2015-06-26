@@ -19,6 +19,18 @@ class View extends CI_Controller {
             $data['travel'] = $this->db_model->travel();
             $data['life'] = $this->db_model->life();
             $data['culture'] = $this->db_model->culture();
+            $this->load->view('main/design/header');
 		$this->load->view('main/index',$data);
+                $this->load->view('main/design/right');
+                 $this->load->view('main/design/footer');
+                
 	}
+        
+        public function post()
+        {    $data['latest'] = $this->db_model->letestNews();
+            $this->load->view('main/design/header');
+            $this->load->view('main/post');
+            $this->load->view('main/design/right',$data);
+            $this->load->view('main/design/footer');
+        }
 }
