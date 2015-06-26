@@ -50,7 +50,7 @@ class Login extends CI_Controller {
             );
 		//	print_r($data);
             $this->session->set_userdata($data); /*Here you can set the values in session */
-            redirect('dasbhoard');   
+            redirect('dashboard');   
         } else { // incorrect username or password
             $this->session->set_flashdata('msg', 'Username or Password Incorrect');
             $this->index();

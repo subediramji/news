@@ -33,30 +33,77 @@
     function getHeadlines()
     {
         $id = '16';
+        $this->db->order_by("id", "desc");
         $this->db->where('c_id',$id);
-        $query = $this->db->get('news');
+        $query = $this->db->get('news',5);
         return $query->result();
         
     }
     function getSlider()
     {
         $id = '17';
+        $this->db->order_by("id", "desc");
         $this->db->where('c_id',$id);
-        $query = $this->db->get('news');
+        $query = $this->db->get('news',5);
         return $query->result();
     }
     
-    function getTechnplogy()
+    function getTechnology()
     {
         $id = '14';
         $this->db->where('c_id',$id);
-        $query = $this->db->get('news');
+        $this->db->order_by("id", "desc");
+        $query = $this->db->get('news',6);
         return $query->result();
     }
     
     function letestNews()
     {   $this->db->order_by("id", "desc");
          //$this->db->where('c_id',$id);
+        $query = $this->db->get('news',3);
+        return $query->result();
+    }
+    
+    function business()
+    {
+        $id = '19';
+        $this->db->order_by("id", "desc");
+        $this->db->where('c_id',$id);
+        $query = $this->db->get('news',3);
+        return $query->result();
+    }
+    
+    function worldNews()
+    {
+        $id = '18';
+        $this->db->order_by("id", "desc");
+        $this->db->where('c_id',$id);
+        $query = $this->db->get('news',3);
+        return $query->result();
+    }
+    
+    function travel()
+    {
+        $id = '20';
+        $this->db->order_by("id", "desc");
+        $this->db->where('c_id',$id);
+        $query = $this->db->get('news',3);
+        return $query->result();
+    }
+    function life()
+    {
+        $id = '21';
+        $this->db->order_by("id", "desc");
+        $this->db->where('c_id',$id);
+        $query = $this->db->get('news',3);
+        return $query->result();
+    }
+    
+function culture()
+    {
+    $id = '22';
+        $this->db->order_by("id", "desc");
+        $this->db->where('c_id',$id);
         $query = $this->db->get('news',3);
         return $query->result();
     }

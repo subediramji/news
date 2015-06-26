@@ -28,10 +28,8 @@ foreach ($news_id as $n)
     $image = $n->image;
     $cate = $n->c_id;
 }
-var_dump($cate);
+
 $category = explode(",",$cate);
-print_r($category);
-print_r(array($category[0]));
 
 echo form_open_multipart('dashboard/news_update'); ?>
 <input type="hidden" name="id" value="<?php echo $id; ?>" />

@@ -1178,6 +1178,7 @@ a:active {
 	width: 100%;
 	height: auto;
 	margin-bottom: 10px;
+        height: 200px;
 }
 .content-block-3 li.article-list {
 	border-top: 1px solid #e6e6e6;
@@ -1227,6 +1228,7 @@ a:active {
 	width: 100%;
 	height: auto;
 	margin-bottom: 10px;
+        height: 150px;
 }
 .content-block-4 li.article-list {
 	border-top: 1px solid #e6e6e6;

@@ -12,8 +12,13 @@ class View extends CI_Controller {
 	{
             $data['headlines'] = $this->db_model->getHeadlines();
             $data['slider'] = $this->db_model->getSlider();
-            $data['technology'] = $this->db_model->getTechnplogy();
+            $data['technology'] = $this->db_model->getTechnology();
             $data['latest'] = $this->db_model->letestNews();
+            $data['business'] = $this->db_model->business();
+            $data['worldnews'] = $this->db_model->worldNews();
+            $data['travel'] = $this->db_model->travel();
+            $data['life'] = $this->db_model->life();
+            $data['culture'] = $this->db_model->culture();
 		$this->load->view('main/index',$data);
 	}
 }

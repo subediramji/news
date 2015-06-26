@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 25, 2015 at 12:51 PM
+-- Generation Time: Jun 26, 2015 at 01:58 PM
 -- Server version: 5.1.37
 -- PHP Version: 5.3.0
 
@@ -29,14 +29,21 @@ CREATE TABLE IF NOT EXISTS `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
-(14, 'Technology');
+(14, 'Technology'),
+(16, 'Headlines'),
+(17, 'Slider'),
+(18, 'World News'),
+(19, 'Bussiness'),
+(20, 'Travell'),
+(21, 'Life Style'),
+(22, 'Culture');
 
 -- --------------------------------------------------------
 
@@ -51,14 +58,36 @@ CREATE TABLE IF NOT EXISTS `news` (
   `image` varchar(255) CHARACTER SET utf8 NOT NULL,
   `c_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `title`, `summary`, `image`, `c_id`) VALUES
-(2, 'sport', 'news ', '', 13);
+(2, 'sport', 'news ', '', 13),
+(5, 'SLC result published', 'Slc result&nbsp;  ', ' ', 16),
+(6, 'WebSoft Nepal NEWS PORTAL', 'web sort ', ' ', 16),
+(7, 'WebSoft Published infochitwan.com.np', 'sdfsdfsfsdf ', ' ', 16),
+(8, 'First Slider', 'This is the first slider which upload ', 'image4.jpg', 17),
+(9, 'Second Slider', 'sdfsdfsdfsfs sdfsdfsdf sdfsdf ', 'image16.jpg', 17),
+(10, 'First Technology page', 'Hi this is first technology page ', 'logo2.jpg', 14),
+(11, 'second technology', 'sdfdslafdsfj sdflsdjfsdf sdlfjsdlf ', 'image111.jpg', 14),
+(12, 'new business file', 'sldfsdklfsdlfsd sldfsdfksjdflkjsfdf ', '45-728x410.jpg', 19),
+(13, 'second data', 'lsdjf sdfljsdf sdlfsd fkksdf&nbsp; ', 'image5.jpg', 19),
+(14, 'third business', 'sdfsdlfsd ksdlf sdf sdfls fsdfsdf sfdfsdf&nbsp; ', 'image17.jpg', 19),
+(15, 'first world news', 'hi this is first news ', '45-728x4101.jpg', 18),
+(16, 'second news', 'fdsdfskdfljsdflsdf sd dfsjdflkksjflksjdf ', 'image18.jpg', 18),
+(18, 'first travell', 'lsdfjsdlf dsafkjflsdjf lsafdjsdlkfjsdf ', 'image19.jpg', 20),
+(17, 'third news', 'dsfkjdsfljsdlkfs fkdsfsldfjsdfjsdlkkfjsdlf', 'image6.jpg', 18),
+(19, 'second travell', 'lksfds lfjsdlfjsdlf lfjsdlfjsdlkf lksdfjlsdfjlsdf lksdfjlsf sf ', 'image7.jpg', 20),
+(20, 'Third travell', 'sfdslf slfjsdfsdj flfjsdfjsdjf', '45-728x4102.jpg', 20),
+(21, 'first Lifestyle', 'ngcjhvhv kghghg kghghjg jkfajdkldslk;lkdf ', '45-728x4103.jpg', 21),
+(22, 'Second Lifestyle', 'Second life styleee<br> ', ' ', 21),
+(23, 'Third Lifestyle', 'Third Lifestyle ', '45-728x4104.jpg', 21),
+(24, 'Culture', 'afjkldakdsokjklssdfsad ', 'image8.jpg', 22),
+(25, 'Culture Second', 'fsdkafjldlsfhkjsdhklfjdsakjfhjs ', 'image9.jpg', 22),
+(26, 'Culture Third', 'dadfdfakhljjd ', 'image10.jpg', 22);
 
 -- --------------------------------------------------------
 

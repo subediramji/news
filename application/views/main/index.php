@@ -194,6 +194,7 @@
                         <div id="news-ticker" class="clearfix">
                             <span class="text">Headlines</span>
                             <ul class="news-list">
+                                
                                 <?php foreach ($headlines as $head){ ?>
                                 <li style="display: none;" class="news-item">
                                     <a href="" rel="bookmark"><?php echo $head->title; ?></a>
@@ -273,142 +274,68 @@
 
                         <div style="height: 671px;" class="block block-left">
 
-                            <h3 class="section-title"><a href="http://dev.theme-junkie.com/html/supernews/category.html">World News</a><span class="see-all"><a href="http://dev.theme-junkie.com/html/supernews/category.html">More</a></span></h3>
-
+                            <h3 class="section-title"><a href="">World News</a><span class="see-all"><a href="">More</a></span></h3>
                             <ul>
-
                                 <li class="article-first">
-
-                                    <a href="http://dev.theme-junkie.com/html/supernews/post.html"><img class="entry-thumbnail" src="<?php echo base_url(); ?>assets/view/logo.png" alt=""></a>
-
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">USA locations for sunrise sunset calendar</a></h2>
-
+                                    <a href=""><img class="entry-thumbnail" src="<?php echo base_url()."upload/".$worldnews[0]->image; ?>" alt=""></a>
+                                    <h2 class="entry-title"><a href=""><?php echo $worldnews[0]->title; ?></a></h2>
                                     <div class="entry-meta">
                                         <span class="entry-stars"></span>
-                                        <span class="entry-date">Sep. 15, 2014</span>
-                                        <span class="entry-comments"><a href="http://dev.theme-junkie.com/html/supernews/post.html#comments">3 Comments</a></span>
+                                        <span class="entry-date">2015</span>
+                                        <span class="entry-comments"><a href=""></a></span>
                                     </div><!-- .entry-meta -->
-
                                     <div class="entry-summary">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum, libero id imperdiet...
+                                       <?php echo $worldnews[0]->summary; ?>
                                     </div><!-- .entry-summary -->
-
                                     <div class="more-link">
-                                        <a href="http://dev.theme-junkie.com/html/supernews/post.html">Read the rest of this entry</a>
+                                        <a href="">more</a>
                                     </div><!-- .more-link -->
-
                                 </li><!-- .article-first -->
-
+                                <?php for($i=1;$i<3;$i++){ ?>
                                 <li class="article-list clearfix">
-
-                                    <a href="http://dev.theme-junkie.com/html/supernews/post.html"><img class="entry-thumbnail" src="<?php echo base_url(); ?>assets/view/logo.png" alt=""></a>
-
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">The world's best photos of hippotigris</a></h2>
-
+                                    <a href=""><img class="entry-thumbnail" src="<?php echo base_url()."upload/thumb_".$worldnews[$i]->image; ?>" alt=""></a>
+                                    <h2 class="entry-title"><a href=""><?php echo $worldnews[$i]->title; ?></a></h2>
                                     <div class="entry-meta">
-                                        <span class="entry-date">Sep. 15, 2014</span>
-                                        <span class="entry-comments"><a href="http://dev.theme-junkie.com/html/supernews/post.html#comments">3 Comments</a></span>
+                                        <span class="entry-date">2015</span>
+                                        <span class="entry-comments"><a href=""></a></span>
                                     </div><!-- .entry-meta -->
-
                                 </li><!-- .article-list -->
-
-                                <li class="article-list clearfix">
-
-                                    <a href="http://dev.theme-junkie.com/html/supernews/post.html"><img class="entry-thumbnail" src="<?php echo base_url(); ?>assets/view/logo.png" alt=""></a>
-
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">Dell attempts to reinvent the desktop PC</a></h2>
-
-                                    <div class="entry-meta">
-                                        <span class="entry-date">Sep. 15, 2014</span>
-                                        <span class="entry-comments"><a href="http://dev.theme-junkie.com/html/supernews/post.html#comments">3 Comments</a></span>
-                                    </div><!-- .entry-meta -->
-
-                                </li><!-- .article-list -->
-
-                                <li class="article-list clearfix">
-
-                                    <a href="http://dev.theme-junkie.com/html/supernews/post.html"><img class="entry-thumbnail" src="<?php echo base_url(); ?>assets/view/logo.png" alt=""></a>
-
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">The "Love Actually" guide to London</a></h2>
-
-                                    <div class="entry-meta">
-                                        <span class="entry-date">Sep. 15, 2014</span>
-                                        <span class="entry-comments"><a href="http://dev.theme-junkie.com/html/supernews/post.html#comments">3 Comments</a></span>
-                                    </div><!-- .entry-meta -->
-
-                                </li><!-- .article-list -->
-
+                                <?php } ?>
                             </ul>
 
                         </div><!-- .block .block-left -->
 
                         <div style="height: 671px;" class="block block-right">
 
-                            <h3 class="section-title"><a href="http://dev.theme-junkie.com/html/supernews/category.html">Business</a><span class="see-all"><a href="http://dev.theme-junkie.com/html/supernews/category.html">More</a></span></h3>
+                            <h3 class="section-title"><a href="">Business</a><span class="see-all"><a href="http://dev.theme-junkie.com/html/supernews/category.html">More</a></span></h3>
 
-                            <ul>
-
+                            <ul>                                
                                 <li class="article-first">
-
-                                    <a href="http://dev.theme-junkie.com/html/supernews/post.html"><img class="entry-thumbnail" src="<?php echo base_url(); ?>assets/view/logo.png" alt=""></a>
-
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">5 Unusual ways to stay fit and active</a></h2>
-
+                                    <a href=""><img class="entry-thumbnail" src="<?php echo base_url()."upload/".$business[0]->image; ?>" alt=""></a>
+                                    <h2 class="entry-title"><a href=""><?php echo $business[0]->title; ?></a></h2>
                                     <div class="entry-meta">
                                         <span class="entry-stars"></span>
-                                        <span class="entry-date">Sep. 15, 2014</span>
-                                        <span class="entry-comments"><a href="http://dev.theme-junkie.com/html/supernews/post.html#comments">3 Comments</a></span>
+                                        <span class="entry-date">2015</span>
+                                        <span class="entry-comments"><a href=""></a></span>
                                     </div><!-- .entry-meta -->
-
                                     <div class="entry-summary">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum, libero id imperdiet...
+                                       <?php echo $business[0]->summary; ?>
                                     </div><!-- .entry-summary -->
-
                                     <div class="more-link">
-                                        <a href="http://dev.theme-junkie.com/html/supernews/post.html">Read the rest of this entry</a>
+                                        <a href="">more</a>
                                     </div><!-- .more-link -->
-
                                 </li><!-- .article-first -->
-
+                                <?php for($i=1;$i<3;$i++) { ?>
                                 <li class="article-list clearfix">
-
-                                    <a href="http://dev.theme-junkie.com/html/supernews/post.html"><img class="entry-thumbnail" src="<?php echo base_url(); ?>assets/view/logo.png" alt=""></a>
-
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">Robbie take long road to graduation</a></h2>
-
+                                   <a href="http://dev.theme-junkie.com/html/supernews/post.html"><img class="entry-thumbnail" src="<?php echo base_url()."upload/thumb_".$business[$i]->image; ?>" alt=""></a>
+                                    <h2 class="entry-title"><a href=""><?php echo $business[$i]->title; ?></a></h2>
                                     <div class="entry-meta">
-                                        <span class="entry-date">Sep. 15, 2014</span>
-                                        <span class="entry-comments"><a href="http://dev.theme-junkie.com/html/supernews/post.html#comments">3 Comments</a></span>
+                                        <span class="entry-date">2015</span>
+                                        <span class="entry-comments"><a href=""></a></span>
                                     </div><!-- .entry-meta -->
-
                                 </li><!-- .article-list -->
-
-                                <li class="article-list clearfix">
-
-                                    <a href="http://dev.theme-junkie.com/html/supernews/post.html"><img class="entry-thumbnail" src="<?php echo base_url(); ?>assets/view/logo.png" alt=""></a>
-
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">Lake Oahe's population improves</a></h2>
-
-                                    <div class="entry-meta">
-                                        <span class="entry-date">Sep. 15, 2014</span>
-                                        <span class="entry-comments"><a href="http://dev.theme-junkie.com/html/supernews/post.html#comments">3 Comments</a></span>
-                                    </div><!-- .entry-meta -->
-
-                                </li><!-- .article-list -->
-
-                                <li class="article-list clearfix">
-
-                                    <a href="http://dev.theme-junkie.com/html/supernews/post.html"><img class="entry-thumbnail" src="<?php echo base_url(); ?>assets/view/logo.png" alt=""></a>
-
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">Missing Fryeburg woman returns home</a></h2>
-
-                                    <div class="entry-meta">
-                                        <span class="entry-date">Sep. 15, 2014</span>
-                                        <span class="entry-comments"><a href="http://dev.theme-junkie.com/html/supernews/post.html#comments">3 Comments</a></span>
-                                    </div><!-- .entry-meta -->
-
-                                </li><!-- .article-list -->
-
+                                <?php  } ?>
+                                <!-- .article-list -->
                             </ul>
 
                         </div><!-- .block .block-right -->
@@ -417,131 +344,85 @@
                     <!-- Content Block #3 / End -->
 
                     <div class="content-ad">
-                        <a href="#"><img src="<?php echo base_url(); ?>assets/view/logo.png" alt=""></a>
+                        <a href="#"><img src="<?php echo base_url(); ?>assets/view/images/websoft.jpg" alt=""></a>
                     </div><!-- .content-ad -->
 
                     <!-- Content Block #4 / Start -->
                     <section class="content-block-4 category-box clearfix">
-
                         <div style="height: 527px;" class="block block-left">
-
-                            <h3 class="section-title"><a href="http://dev.theme-junkie.com/html/supernews/category.html">Travel</a><span class="see-all"><a href="http://dev.theme-junkie.com/html/supernews/category.html">More</a></span></h3>
-
+                            <h3 class="section-title"><a href="">Travel</a><span class="see-all"><a href="">More</a></span></h3>
                             <ul>
                                 <li class="article-first">
-
-                                    <a href="http://dev.theme-junkie.com/html/supernews/post.html"><img class="entry-thumbnail" src="<?php echo base_url(); ?>assets/view/logo.png" alt=""></a>
-
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">Tips for getting started in travel writing</a></h2>
-
+                                    <a href=""><img class="entry-thumbnail" src="<?php echo base_url()."upload/".$travel[0]->image; ?>" alt=""></a>
+                                    <h2 class="entry-title"><a href=""><?php echo $travel[0]->title; ?></a></h2>
                                     <div class="entry-meta">
-                                        <span class="entry-date">Sep. 15, 2014</span>
-                                        <span class="entry-comments"><a href="http://dev.theme-junkie.com/html/supernews/post.html#comments">3 Comments</a></span>
+                                        <span class="entry-date">2015</span>
+                                        <span class="entry-comments"><a href=""></a></span>
                                     </div><!-- .entry-meta -->
-
                                     <div class="entry-summary">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum...
+                                      <?php echo $travel[0]->summary; ?>
                                     </div><!-- .entry-summary -->
-
                                     <div class="more-link">
-                                        <a href="http://dev.theme-junkie.com/html/supernews/post.html">Read the rest of this entry</a>
+                                        <a href="">more</a>
                                     </div><!-- .more-link -->
-
                                 </li><!-- .article-first -->
-
-                                <li class="article-list">
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">Football, made from a plane</a></h2>
+                                <?php for($i=1;$i<3;$i++){ ?>
+                               <li class="article-list">
+                                    <h2 class="entry-title"><a href=""><?php echo $travel[$i]->title; ?></a></h2>
                                 </li><!-- .article-list -->
-
-                                <li class="article-list">
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">Be a cowboy, save a horse</a></h2>
-                                </li><!-- .article-list -->
-
-                                <li class="article-list">
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">Seat reclining sparks skirmish</a></h2>
-                                </li><!-- .article-list -->
+                                <?php } ?>
                             </ul>
 
                         </div><!-- .block .block-left -->
 
                         <div style="height: 527px;" class="block block-center">
-
-                            <h3 class="section-title"><a href="http://dev.theme-junkie.com/html/supernews/category.html">Lifestyle</a><span class="see-all"><a href="http://dev.theme-junkie.com/html/supernews/category.html">More</a></span></h3>
-
+                            <h3 class="section-title"><a href="">Lifestyle</a><span class="see-all"><a href="">More</a></span></h3>
                             <ul>
-                                <li class="article-first">
-
-                                    <a href="http://dev.theme-junkie.com/html/supernews/post.html"><img class="entry-thumbnail" src="<?php echo base_url(); ?>assets/view/logo.png" alt=""></a>
-
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">4 Surprising health benefits of tea</a></h2>
-
+                               <li class="article-first">
+                                    <a href=""><img class="entry-thumbnail" src="<?php echo base_url()."upload/".$life[0]->image; ?>" alt=""></a>
+                                    <h2 class="entry-title"><a href=""><?php echo $life[0]->title; ?></a></h2>
                                     <div class="entry-meta">
-                                        <span class="entry-date">Sep. 15, 2014</span>
-                                        <span class="entry-comments"><a href="http://dev.theme-junkie.com/html/supernews/post.html#comments">3 Comments</a></span>
+                                       <span class="entry-date">2015</span>
+                                        <span class="entry-comments"><a href=""></a></span>
                                     </div><!-- .entry-meta -->
-
                                     <div class="entry-summary">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum...
+                                       <?php echo $life[0]->summary; ?>
                                     </div><!-- .entry-summary -->
-
                                     <div class="more-link">
-                                        <a href="http://dev.theme-junkie.com/html/supernews/post.html">Read the rest of this entry</a>
+                                        <a href="">more</a>
                                     </div><!-- .more-link -->
-
                                 </li><!-- .article-first -->
-
+                                <?php for($i=1;$i<3;$i++) { ?>
                                 <li class="article-list">
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">Sculptures as thin as a hair</a></h2>
+                                    <h2 class="entry-title"><a href=""><?php echo $life[$i]->title; ?></a></h2>
                                 </li><!-- .article-list -->
-
-                                <li class="article-list">
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">Trieste, the city of fashion</a></h2>
-                                </li><!-- .article-list -->
-
-                                <li class="article-list">
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">World's most stylish bookstores</a></h2>
-                                </li><!-- .article-list -->
+                                <?php } ?>
                             </ul>
 
                         </div><!-- .block .block-center -->
 
                         <div style="height: 527px;" class="block block-right">
-
-                            <h3 class="section-title"><a href="http://dev.theme-junkie.com/html/supernews/category.html">Culture</a><span class="see-all"><a href="http://dev.theme-junkie.com/html/supernews/category.html">More</a></span></h3>
-
+                            <h3 class="section-title"><a href="">Culture</a><span class="see-all"><a href="">More</a></span></h3>
                             <ul>
                                 <li class="article-first">
-
-                                    <a href="http://dev.theme-junkie.com/html/supernews/post.html"><img class="entry-thumbnail" src="<?php echo base_url(); ?>assets/view/logo.png" alt=""></a>
-
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">The world's best hotel restaurants in 2014</a></h2>
-
+                                    <a href=""><img class="entry-thumbnail" src="<?php echo base_url()."upload/".$culture[0]->image; ?>" alt=""></a>
+                                    <h2 class="entry-title"><a href=""><?php echo $culture[0]->title; ?></a></h2>
                                     <div class="entry-meta">
-                                        <span class="entry-date">Sep. 15, 2014</span>
-                                        <span class="entry-comments"><a href="http://dev.theme-junkie.com/html/supernews/post.html#comments">3 Comments</a></span>
+                                        <span class="entry-date">2015</span>
+                                        <span class="entry-comments"><a href=""></a></span>
                                     </div><!-- .entry-meta -->
-
                                     <div class="entry-summary">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum...
+                                        <?php echo $culture[0]->summary; ?>
                                     </div><!-- .entry-summary -->
-
                                     <div class="more-link">
-                                        <a href="http://dev.theme-junkie.com/html/supernews/post.html">Read the rest of this entry</a>
+                                        <a href="">more</a>
                                     </div><!-- .more-link -->
-
                                 </li><!-- .article-first -->
-
+                                <?php for($i=1;$i<3;$i++) { ?>
                                 <li class="article-list">
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">19 ways to blow your bonus</a></h2>
+                                    <h2 class="entry-title"><a href=""><?php echo $culture[$i]->title; ?></a></h2>
                                 </li><!-- .article-list -->
-
-                                <li class="article-list">
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">Best Los Angeles theme bars</a></h2>
-                                </li><!-- .article-list -->
-
-                                <li class="article-list">
-                                    <h2 class="entry-title"><a href="http://dev.theme-junkie.com/html/supernews/post.html">Africa's best places to eat</a></h2>
-                                </li><!-- .article-list -->
+                                <?php } ?>
                             </ul>
 
                         </div><!-- .block .block-right -->
