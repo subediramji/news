@@ -2,7 +2,7 @@
     <ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-                                        <a href="<?php echo base_url()."dashboard/home" ?>">Home</a> 
+                                        <a href="<?php echo base_url()."dashboard" ?>">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
 				<li><a href="#">All Categories</a></li>
@@ -18,11 +18,7 @@
 				<div class="box span12">
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon user"></i><span class="break"></span>All News</h2>
-						<!--<div class="box-icon">
-							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
-							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
-						</div>-->
+						
 					</div>
 					<div class="box-content">
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
@@ -41,7 +37,7 @@
         
         <td class="center"><?php echo $cat->name;?></td>
         <td class="center">
-             <a class="btn btn-inverse" href="<?php echo base_url() ?>">
+             <a class="btn btn-inverse" href="<?php echo base_url()."view/categories/".$cat->id; ?>">
 	<i class="halflings-icon white home"></i>  
 	</a>
             <a class="btn btn-info" href="<?php echo base_url()."dashboard/editcate/".$cat->id; ?>">

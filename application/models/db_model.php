@@ -171,6 +171,11 @@ function culture()
         $result = $this->db->get('news');
         return $result->result();
     }
+    function all_news_cate_id($id) {
+        $this->db->where('c_id', $id);
+        $result = $this->db->get('news');
+        return $result->result();
+    }
 
     function update_news($data, $id) {
         $this->db->where('id', $id);

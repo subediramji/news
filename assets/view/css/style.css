@@ -290,7 +290,7 @@ a:active {
 	padding: 15px 0;
 }
 #secondary-bar {
-	background: #fff;
+	background: #000;
 	border-top: 2px solid #333;
 	border-bottom: 1px solid #e9e9e9;
 	display: block;
@@ -442,7 +442,7 @@ a:active {
 	background: url('images/seperator.png') no-repeat right center;
 }
 #secondary-nav ul li a {
-	color: #333333;
+	color: #fff;
 	display: block;
 	font-size: 12px;
 	font-weight: 700;
@@ -739,10 +739,11 @@ a:active {
 	margin-top: 13px;
 }
 .header-search .fa {
-	color: #333333;
+	color: #fff;
 	font-style: normal;
 	font-size: 13px;
 	cursor: pointer;
+        margin-right: 15px;
 }
 .header-search .fa-search.active {
 	display: none;
@@ -793,11 +794,11 @@ a:active {
 }
 .hentry .entry-title {
 	line-height: 1.3;
-	margin-bottom: 10px;
+	margin-bottom: -10px;
 }
 .hentry .entry-meta {
-	color: #9f9f9f;
-	margin-bottom: 10px;
+	color: #000;
+	margin-bottom: -10px;
 }
 .entry-category {
 	text-transform: uppercase;
@@ -807,8 +808,9 @@ a:active {
 }
 .entry-category,
 .entry-date {
-	color: #999999;
+	color: #fff;
 	font-size: 11px;
+        padding: 0 20px;
 }
 .entry-comment a:link,
 .entry-comment a:visited {
@@ -833,8 +835,9 @@ a:active {
 	font-size: 12px;
 	line-height: 1;
 	margin-bottom: 20px;
-	padding-bottom: 10px;
+	padding:7px 10px;
 	position: relative;
+        background: linear-gradient(#00aced, white);
 	text-transform: uppercase;
 }
 .section-title strong {
@@ -850,7 +853,7 @@ a:active {
 .see-all {
 	display: block;
 	position: absolute;
-	top: -2px;
+	top: 3px;
 	right: 0;
 	text-transform: lowercase;
 }
@@ -943,11 +946,12 @@ a:active {
 }
 #featured-content .entry-title {
 	font-size: 32px;
+        padding: 0 20px;
 }
 #featured-content .entry-thumbnail {
-	width: 728px;
+	width: 805px;
 	height: 410px;
-	margin: 0 0 10px 0;
+	margin: 0 0px -95px -38px;
 }
 #featured-content #carousel-0 {
 	position: relative;
@@ -1166,6 +1170,7 @@ a:active {
 }
 .category-box .entry-summary {
 	margin-top: 12px;
+        padding: 0 20px;
 }
 /* Content Block #3 */
 .content-block-3 {

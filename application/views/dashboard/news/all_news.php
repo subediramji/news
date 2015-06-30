@@ -2,7 +2,7 @@
     <ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-                                        <a href="<?php echo base_url()."dashboard/home" ?>">Home</a> 
+                                        <a href="<?php echo base_url()."dashboard" ?>">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
 				<li><a href="#">All News</a></li>
@@ -15,16 +15,17 @@
                 ?>
                 </div>
                 <?php } ?>
-    
+ 
     <div class="row-fluid sortable">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon user"></i><span class="break"></span>All News</h2>
 						
 					</div>
+                                  
 					<div class="box-content">
-						<table class="table table-striped table-bordered bootstrap-datatable datatable">
-						  <thead>
+                                            <table class="table table-striped table-bordered bootstrap-datatable datatable">
+						<thead>
 							  <tr>
 								  
 								  <th>Title</th>
@@ -45,15 +46,23 @@
         <td class="center"> <img src="<?php if($news->image==" "){}else{ echo base_url()."upload/thumb_".$news->image;}?>" alt="image" /></td>
         <td class="center">
             <?php
-            $cat_id = $this->db_model->all_cat_id($news->c_id);
+            $category = explode(",",$news->c_id);
+             //var_dump($category);
+            
+             foreach ($category as $cid)
+             {
+                 $cat_id = $this->db_model->all_cat_id($cid);
+           
             foreach ($cat_id as $cname)
             {
-                echo $cname->name;
+                echo $cname->name."<br>";
             }
+             }
+            
             ?>
         </td>
         <td class="center">
-             <a class="btn btn-inverse" href="<?php echo base_url() ?>">
+             <a class="btn btn-inverse" href="<?php echo base_url()."view/post/".$news->id; ?>">
 	<i class="halflings-icon white home"></i>  
 	</a>
             <a class="btn btn-info" href="<?php echo base_url()."dashboard/editnews/".$news->id; ?>">

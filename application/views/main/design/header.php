@@ -41,28 +41,15 @@
                         <div class="menu_container clearfix">
                             <ul class="sf-menu">
                                 <li class="submenu selected">
-                                    <a href="#" title="Home">
+                                    <a href="<?php echo base_url(); ?>" title="Home">
                                         Home
                                     </a>
-                                    <ul>
-                                        <li>
-                                            <a href="" title="Home Style 1">
-                                                Sub-Home 1
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li class="submenu">
                                     <a href="#" title="Pages">
                                         Pages
                                     </a>
-                                    <ul>
-                                        <li>
-                                            <a href="http://quanticalabs.com/Pressroom/Template/?page=about" title="About Style 1">
-                                                About Style 1
-                                            </a>
-                                        </li>
-                                    </ul>
+                                   
                                 </li>
                                 <li class="submenu mega_menu_parent">
                                     <a href="#" title="Mega Menu">
@@ -148,11 +135,13 @@
                                         Categories
                                     </a>
                                     <ul>
+                                        <?php foreach ($cate as $c){ ?>
                                         <li>
-                                            <a href title="Health">
-                                                Health
+                                            <a href="<?php echo base_url()."view/categories/".$c->id; ?>" title="<?php $c->name; ?>">
+                                               <?php echo $c->name; ?>
                                             </a>
                                         </li>
+                                        <?php } ?>
                                     </ul>
                                 </li>
                                 <li class="submenu">

@@ -2,7 +2,7 @@
     <ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-                                        <a href="<?php echo base_url()."dashboard/home" ?>">Home</a> 
+                                        <a href="<?php echo base_url()."dashboard" ?>">Home</a> 
 					<i class="icon-angle-right"></i>
 				</li>
 				<li><a href="#">Edit News</a></li>
@@ -36,7 +36,10 @@ echo form_open_multipart('dashboard/news_update'); ?>
 <input type="text" name="title" value="<?php echo $title;?>" />
 <label>Summary</label>
 <?php echo form_error('summary'); ?>
-<textarea name="summary"><?php echo $summary; ?></textarea>
+<div  class="controls" style="height:300px;">
+<textarea class="cleditor" id="textarea2" rows="3" style="display: none; width: 500px; height: 297px;" name="summary" required><?php echo $summary; ?> </textarea>
+<iframe frameborder="0" src="javascript:'';" style="width: 498px; height: 197px;"></iframe>
+</div>
 <label>Current Image</label>
 <input type="hidden" name="old_img" value="<?php echo $image; ?>" />
 <img src="<?php echo base_url()."/upload/thumb_".$image; ?>" alt="Image not set" />
@@ -48,21 +51,13 @@ echo form_open_multipart('dashboard/news_update'); ?>
 <?php echo form_error('category[]'); ?>
 <?php
                                 $all_cat = $this->db_model->all_cat();
-                                $i=0;
                                 foreach ($all_cat as $a) {
-                                    foreach ($category as  $c[$i]) {
-                                       // var_dump(in_array($i, $category));
-                                        if($a->id==$c[$i]){?>
-<input type="checkbox" name="category[]" value="<?php echo $a->id;?>" checked="checked" >
-                                    <?php echo $a->name; ?> <br>
-                                        <?php  }
-                                        
-                                        if($a->id==!$c[$i]){ ?>
-                                            <input type="checkbox" name="category[]" value="<?php echo $a->id;?>"  >
-                                    <?php echo $a->name; ?> <br>
-                                       <?php }$i++;
-                                        }}?>
-<br>
+                                if (in_array($a->id, $category)){?>
+	  			<input type="checkbox" name="category[]" value="<?php echo $a->id; ?>" checked="checked"><?php echo $a->name; ?><br>
+	  			<?php }else {?>
+				<input type="checkbox" name="category[]" value="<?php echo $a->id; ?>" ><?php echo $a->name; ?><br>
+                                <?php }}                               ?>
+<br>-->
 <button type="submit" class="btn btn-primary" >Update</button>
 <?php echo form_close(); 
 }else{
