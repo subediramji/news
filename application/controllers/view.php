@@ -20,6 +20,8 @@ class View extends CI_Controller {
             $data['life'] = $this->db_model->life();
             $data['culture'] = $this->db_model->culture();
             $data['cate'] = $this->db_model->all_cat();
+            $data['advt'] = $this->db_model->advt();
+            $data['advs'] = $this->db_model->advs();
             $this->load->view('main/design/header',$data);
 		$this->load->view('main/index',$data);
                 $this->load->view('main/design/right');

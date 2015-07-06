@@ -188,5 +188,62 @@ function culture()
         //var_dump($result);
         return $result;
     }
+    function all_file()
+    {
+         $result = $this->db->get('files');
+        return $result->result();
+    }
+    function delimg($id)
+    {
+        $this->db->where('file_id', $id);
+        $this->db->delete('files');
+        return ($this->db->affected_rows() != 1 ) ? false : true;
+    }
+            function all_file_id($id)
+    {
+        
+        $this->db->where('file_id',$id);
+         $result = $this->db->get('files');
+        return $result->result();
+    }
+    
+    function insert_adv($data)
+    {
+         $this->db->insert('adv', $data);
+        return ($this->db->affected_rows() != 1 ) ? false : true;
+    }
+    function  all_adv()
+    {
+        $result = $this->db->get('adv');
+        return $result->result();
+    }
+    
+    function all_adv_id($id)
+    {
+        $this->db->where('id', $id);
+        $result = $this->db->get('adv');
+        return $result->result();
+    }
+    function deladv($id)
+    {
+         $this->db->where('id', $id);
+        $this->db->delete('adv');
+        return ($this->db->affected_rows() != 1 ) ? false : true;
+    }
+    
+    function advt()
+    {
+        $this->db->order_by('id','DESC');
+        $this->db->like('location', "1");
+        $result = $this->db->get('adv',1);
+        return $result->result();
+    }
+    function advs()
+    {
+        $this->db->order_by('id','DESC');
+        $this->db->like('location', "2");
+        $result = $this->db->get('adv',2);
+        return $result->result();
+    }
 
 }

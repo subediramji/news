@@ -9,7 +9,7 @@
 	
 	<!-- start: JavaScript-->
 
-		<script src="<?php echo base_url();?>assets/js/jquery-1.9.1.min.js"></script>
+		
 	<script src="<?php echo base_url();?>assets/js/jquery-migrate-1.0.0.min.js"></script>
 	
 		<script src="<?php echo base_url();?>assets/js/jquery-ui-1.10.0.custom.min.js"></script>

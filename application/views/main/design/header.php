@@ -31,6 +31,13 @@
                     <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/view/logo.png" alt="Logo Title"></a>
                     <!-- <h1 class="site-title"><a href="index.html">SuperNews</a></h1> -->
                 </div>
+                <?php 
+                if(!empty($advt)){foreach ($advt as $at) { // size 728*90?>
+                <div class="header-ad">
+                    
+                    <a href="#"><img alt="" style="width: 782px;height: 90px;" src="<?php echo base_url()."/upload/".$at->image; ?>"></a>
+			</div>
+                <?php }}?>
                 <div class="clearfix"></div>
 
                 <!-- Secondary Bar / Start -->

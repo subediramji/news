@@ -25,7 +25,7 @@ class Dashboard extends CI_Controller {
         }
     }
 
-    //===============DATE LOGIN PART ==========================
+    //===============DATE CONVERT PART ==========================
     private $_bs = array(
         0 => array(2000, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31),
         1 => array(2001, 31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30),
@@ -309,7 +309,7 @@ class Dashboard extends CI_Controller {
         }
     }
 
-    //===============CLOSED LOGIN PART =========================
+    //===============CLOSED CONVERT PART =========================
     //============== START NEWS PART ==========================
     public function add_news() {
         if ($this->session->userdata('is_logged_in')) {
@@ -611,5 +611,160 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
+    
+    //=================== START ADVERTISEMENT PART =============================================//
+    function add_adv()
+    {
+        if ($this->session->userdata('is_logged_in')) {
+        $this->load->view('dashboard/design/header');
+                $this->load->view('dashboard/design/left');
+                $this->load->view('dashboard/adv/add');
+                $this->load->view('dashboard/design/footer');
+    }else{
+        redirect('login');
+    }
+    }
+    function insert_adv()
+    {
+        if ($this->session->userdata('is_logged_in')) {
+            $config['upload_path'] = './upload/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $this->load->library('upload', $config);
+            $this->load->library('form_validation');
+            $this->form_validation->set_error_delimiters('<div class="error" style="color:red;">', '</div>');
+            $this->form_validation->set_rules('location[]', 'Location', 'required');
+            if ($this->form_validation->run() == FALSE) {
+                $this->session->set_flashdata('msg', "Please select at least one location");
+                        redirect('dashboard/add_adv');
+                
+            } else {
+                if (!$this->upload->do_upload()) {
+                    $error = $this->upload->display_errors();
+                   // die($e)
+                    $this->load->view('dashboard/design/header');
+                $this->load->view('dashboard/design/left');
+                $this->load->view('dashboard/adv/add');
+                $this->load->view('dashboard/design/footer');
+                } else {
+                    $dataimg = array('upload_data' => $this->upload->data());
+                    $image = $dataimg['upload_data']['file_name'];
+                    $image_thumb = dirname('thumb_' . $image . '/demo');
+                    $config['image_library'] = 'gd2';
+                    $config['source_image'] = './upload/' . $image;
+                    $config['new_image'] = $image_thumb;
+                    $config['maintain_ratio'] = TRUE;
+                    $config['width'] = 75;
+                    $config['height'] = 50;
+                    $cate = $this->input->post('location');
+                    // $checkbox1=$_POST['techno'];
+                    $location = implode(",", $cate);
+                    //die($location); 
+                    $this->load->library('image_lib', $config);
+                    $this->image_lib->resize();
+                    $data = array('image' => $image, 'location' => $location);
+                    $result = $this->db_model->insert_adv($data);
+                    if ($result == TRUE) {
+                        $this->session->set_flashdata('msg', "Advertisement Added Successfully");
+                        redirect('dashboard/add_adv');
+                    } else {
+                        $this->session->set_flashdata('msg', "Please Fill up all data!");
+                    }
+        }}}
+                
+        else{
+            redirect('login');
+        }
+    }
+            function all_adv()
+    {if ($this->session->userdata('is_logged_in')) {
+        $data['adv'] = $this->db_model->all_adv();
+                $this->load->view('dashboard/design/header');
+                $this->load->view('dashboard/design/left');
+                $this->load->view('dashboard/adv/list',$data);
+                $this->load->view('dashboard/design/footer');
+    }  else {
+        redirect('login');  
+    }}
+    
+function delete_adv($id=NULL)
+{
+    if ($this->session->userdata('is_logged_in')) {
+            if (isset($id)) {
+                $data['adv_id'] = $this->db_model->all_adv_id($id);
+                foreach ($data['adv_id'] as $a) {
+                    $img = $a->image;
+                }
+                if (file_exists("./upload/".$img)) {
+                    unlink('./upload/' . $img);
+                    unlink('./upload/thumb_' . $img);
+                    }                
+                $result = $this->db_model->deladv($id);
+                if ($result == TRUE) {
+                    $this->session->set_flashdata('msg', "Advertisement Delete Successfully");
+                } else {
+                    $this->session->set_flashdata('msg', "Advertisement Not Delete ");
+                }
+            } else {
+                echo 'sorry file not found';
+            }
+            redirect('dashboard/all_adv');
+        } else {
+            redirect('login');
+        }
+}
 
+function edit_adv($id)
+{
+     if ($this->session->userdata('is_logged_in')) {
+            $data['adv_id'] = $this->db_model->all_adv_id($id);            
+            $this->load->view('dashboard/design/header');
+            $this->load->view('dashboard/design/left');
+            $this->load->view('dashboard/adv/edit', $data);
+            $this->load->view('dashboard/design/footer');
+        } else {
+            redirect('login');
+        }
+}
+    //====================== CLOSED ADVERTISEMENT PART ============================================== //
+    //======================= START MEDIA PART ======================================================//
+    function all_media()
+    {
+       if ($this->session->userdata('is_logged_in')) {
+           $data['files'] = $this->db_model->all_file();
+        $this->load->view('dashboard/design/header');
+                $this->load->view('dashboard/design/left');
+                $this->load->view('dashboard/media/list',$data);
+                $this->load->view('dashboard/design/footer');
+    }  else {
+        redirect('login');  
+    } 
+    }
+    
+    function delimg($id=NULL)
+    {
+        $data['files'] = $this->db_model->all_file_id($id);
+    if(!empty($data['files']))
+    {
+        foreach ($data['files'] as $fl)
+        {
+            $file = $fl->file_name;
+        }
+        if(file_exists('./upload/'.$file))
+        {
+            unlink('./upload/'.$file);
+        }
+       $result = $this->db_model->delimg($id);
+         if ($result == TRUE) {
+                    $this->session->set_flashdata('msg', "Image Delete Successfully");
+                } else {
+                    $this->session->set_flashdata('msg', "Image Not Delete ");
+         }
+         redirect('dashboard/all_media');
+    }
+    else{
+        echo 'Sorry file not found';
+    }
+        
+    }
+    //======================= CLOSED MEDIA PART ==================================================//
 }

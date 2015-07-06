@@ -80,7 +80,19 @@
                         </div>
 
                     </div><!-- .widget .widget_tabs -->
+                     <?php 
+                if(!empty($advs)){foreach ($advs as $as) { // size 300*600?>
+                <div class="widget widget_ads">
+                     <h3 class="widget-title">Advertisement</h3>  
+                    <a href="#"><img alt="" style="width: 300px;height: 300px;" src="<?php echo base_url()."/upload/".$as->image; ?>"></a>
+			</div>
+                <?php }}?>
+                     
+			       
+			       
+			    
                 </div>
+               
                 <!-- Secondary / End -->
 
                 <div class="clearfix"></div>

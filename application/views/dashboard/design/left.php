@@ -21,6 +21,20 @@
 								<li><a class="submenu" href="<?php echo base_url().'dashboard/add_categories';?>"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add New Categories</span></a></li>
 							</ul>	
 						</li>
+                                                <li>
+							<a class="dropmenu" href="#"><i class="icon-file"></i><span class="hidden-tablet"> Advertisements</span></a>
+							<ul>
+								<li><a class="submenu" href="<?php echo base_url().'dashboard/all_adv'; ?>"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Advertisements</span></a></li>
+								<li><a class="submenu" href="<?php echo base_url().'dashboard/add_adv';?>"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add New Advertisements</span></a></li>
+							</ul>	
+						</li>
+                                                <li>
+							<a class="dropmenu" href="#"><i class="icon-file"></i><span class="hidden-tablet"> Media</span></a>
+							<ul>
+								<li><a class="submenu" href="<?php echo base_url().'dashboard/all_media'; ?>"><i class="icon-file-alt"></i><span class="hidden-tablet"> All Media</span></a></li>
+<!--								<li><a class="submenu" href="<?php //echo base_url().'dashboard/add_media';?>"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add New Media</span></a></li>-->
+							</ul>	
+						</li>
 					</ul>
 				</div>
 			</div>
