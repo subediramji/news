@@ -380,13 +380,15 @@ function template_functions(){
 	});
 
 	/* ---------- Datable ---------- */
-	$('.datatable').dataTable({
+	$('.datatable').dataTable({            
 			"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span12'i><'span12 center'p>>",
-			"sPaginationType": "bootstrap",
-			"oLanguage": {
+			"sPaginationType": "bootstrap",                        
+                        "oLanguage": {
 			"sLengthMenu": "_MENU_ records per page"
-			}
+			}             
 		} );
+                
+                
 	$('.btn-close').click(function(e){
 		e.preventDefault();
 		$(this).parent().parent().parent().fadeOut();
@@ -707,7 +709,7 @@ function circle_progess() {
 	        'min':0,
 	        'max':10000,
 	        'readOnly': true,
-	        'width': 240,
+	        'width': 140,
 	        'height': 240,
 		'bgColor': 'rgba(255,255,255,0.5)',
 	        'fgColor': 'rgba(255,255,255,0.9)',

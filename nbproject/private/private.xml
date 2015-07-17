@@ -3,15 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/news/application/views/dashboard/design/left.php</file>
-            <file>file:/C:/xampp/htdocs/news/application/controllers/dashboard.php</file>
-            <file>file:/C:/xampp/htdocs/news/application/views/dashboard/adv/list.php</file>
-            <file>file:/C:/xampp/htdocs/news/application/controllers/view.php</file>
-            <file>file:/C:/xampp/htdocs/news/application/views/dashboard/adv/add.php</file>
-            <file>file:/C:/xampp/htdocs/news/application/views/main/design/right.php</file>
-            <file>file:/C:/xampp/htdocs/news/application/views/dashboard/media/list.php</file>
+            <file>file:/C:/xampp/htdocs/news/assets/js/jquery.dataTables.min.js</file>
+            <file>file:/C:/xampp/htdocs/news/assets/js/jquery-1.js</file>
+            <file>file:/C:/xampp/htdocs/news/application/controllers/View.php</file>
+            <file>file:/C:/xampp/htdocs/news/application/views/dashboard/login/login.php</file>
+            <file>file:/C:/xampp/htdocs/news/application/views/dashboard/index.php</file>
+            <file>file:/C:/xampp/htdocs/news/assets/js/custom.js</file>
             <file>file:/C:/xampp/htdocs/news/application/models/db_model.php</file>
-            <file>file:/C:/xampp/htdocs/news/application/views/main/design/header.php</file>
+            <file>file:/C:/xampp/htdocs/news/assets/js/jquery-ui-1.10.0.custom.min.js</file>
+            <file>file:/C:/xampp/htdocs/news/application/controllers/Dashboard.php</file>
+            <file>file:/C:/xampp/htdocs/news/application/views/dashboard/design/footer.php</file>
+            <file>file:/C:/xampp/htdocs/news/assets/js/jquery.js</file>
+            <file>file:/C:/xampp/htdocs/news/application/views/dashboard/news/all_news.php</file>
+            <file>file:/C:/xampp/htdocs/news/application/views/dashboard/design/f1.php</file>
+            <file>file:/C:/xampp/htdocs/news/application/views/dashboard/news/test.php</file>
             <file>file:/C:/xampp/htdocs/news/application/views/dashboard/adv/edit.php</file>
         </group>
     </open-files>

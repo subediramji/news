@@ -7,7 +7,7 @@
 				<div id="featured-content" class="category-box clearfix">
 
 					 <div id="news-ticker" class="clearfix">
-                            <span class="text">प्रमुख समाचार</span>
+                            <span class="text section-title">प्रमुख समाचार</span>
                             <ul class="news-list">
                                 
                                 <?php foreach ($headlines as $head){ ?>

@@ -25,8 +25,8 @@
 				<div class="span2" onTablet="span4" onDesktop="span2">
                 	<div class="circleStatsItemBox yellow">
 						<div class="header">Total News</div>
-<!--						<span class="percent">percent</span>-->
-						<div class="circleStat">
+<!--						<span class="percent">percent</span> -->
+						<div class="circleStatss">
                     		<input type="text" value="<?php echo $count_news; ?>" class="whiteCircle" />
 						</div>		
 						
@@ -43,7 +43,8 @@
 						
                 	</div>
 				</div>
-                        </div>	
+                        </div>
+                            
 	</div><!--/.fluid-container-->
 	
 			<!-- end: Content -->

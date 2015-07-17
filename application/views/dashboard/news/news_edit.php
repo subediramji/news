@@ -57,7 +57,7 @@ echo form_open_multipart('dashboard/news_update'); ?>
 	  			<?php }else {?>
 				<input type="checkbox" name="category[]" value="<?php echo $a->id; ?>" ><?php echo $a->name; ?><br>
                                 <?php }}                               ?>
-<br>-->
+<br>
 <button type="submit" class="btn btn-primary" >Update</button>
 <?php echo form_close(); 
 }else{

@@ -1,9 +1,5 @@
-<?php
-
-defined('BASEPATH') OR exit('No direct script access allowed');
-
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 class Dashboard extends CI_Controller {
-
     function __construct() {
         parent::__construct();
         $this->load->model('db_model');
@@ -11,7 +7,6 @@ class Dashboard extends CI_Controller {
         $this->load->helper(array('form'));
         $this->load->helper('text');
     }
-
     public function index() {
         if ($this->session->userdata('is_logged_in')) {
             $data['count_news'] = $this->db_model->count_news();
@@ -24,7 +19,6 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
-
     //===============DATE CONVERT PART ==========================
     private $_bs = array(
         0 => array(2000, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 29, 31),
@@ -122,23 +116,18 @@ class Dashboard extends CI_Controller {
     private $_nep_date = array('year' => '', 'month' => '', 'date' => '', 'day' => '', 'nmonth' => '', 'num_day' => '');
     private $_eng_date = array('year' => '', 'month' => '', 'date' => '', 'day' => '', 'emonth' => '', 'num_day' => '');
     public $debug_info = "";
-
     private function _is_in_range_eng($yy, $mm, $dd) {
         if ($yy < 1944 || $yy > 2033) {
             return 'Supported only between 1944-2022';
         }
-
         if ($mm < 1 || $mm > 12) {
             return 'Error! month value can be between 1-12 only';
         }
-
         if ($dd < 1 || $dd > 31) {
             return 'Error! day value can be between 1-31 only';
         }
-
         return TRUE;
     }
-
     public function is_leap_year($year) {
         $a = $year;
         if ($a % 100 == 0) {
@@ -155,7 +144,6 @@ class Dashboard extends CI_Controller {
             }
         }
     }
-
     private function _get_day_of_week($day) {
         switch ($day) {
             case 1:
@@ -182,7 +170,6 @@ class Dashboard extends CI_Controller {
         }
         return $day;
     }
-
     private function _get_nepali_month($m) {
         $n_month = FALSE;
         switch ($m) {
@@ -225,7 +212,6 @@ class Dashboard extends CI_Controller {
         }
         return $n_month;
     }
-
     public function eng_to_nep($yy, $mm, $dd) {
         $chk = $this->_is_in_range_eng($yy, $mm, $dd);
         if ($chk !== TRUE) {
@@ -308,7 +294,6 @@ class Dashboard extends CI_Controller {
             return $this->_nep_date;
         }
     }
-
     //===============CLOSED CONVERT PART =========================
     //============== START NEWS PART ==========================
     public function add_news() {
@@ -322,27 +307,38 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
-
-    public function all_news() {
+//    public function test() {
+//        if ($this->session->userdata('is_logged_in')) {
+//            $data['all_news'] = $this->db_model->all_news();
+//            $this->load->view('dashboard/design/header');
+//            $this->load->view('dashboard/design/left');
+//            $this->load->view('dashboard/news/all_news', $data);
+//            $this->load->view('dashboard/design/footer');
+//        } else {
+//            redirect('login');
+//        }
+//    }
+    function all_news()
+    {
         if ($this->session->userdata('is_logged_in')) {
             $data['all_news'] = $this->db_model->all_news();
-            $this->load->view('dashboard/design/header');
-            $this->load->view('dashboard/design/left');
-            $this->load->view('dashboard/news/all_news', $data);
-            $this->load->view('dashboard/design/footer');
+            $data['all_cat'] = $this->db_model->all_cat();
+           $this->load->view('dashboard/design/header');
+           $this->load->view('dashboard/design/left');
+            $this->load->view('dashboard/news/test',$data);
+           $this->load->view('dashboard/design/f1');
         } else {
             redirect('login');
         }
     }
-
-    function deletenews($id = NULL) {
+            function deletenews($id = NULL) {
         if ($this->session->userdata('is_logged_in')) {
             if (isset($id)) {
                 $data['news_id'] = $this->db_model->all_news_id($id);
                 foreach ($data['news_id'] as $a) {
                     $img = $a->image;
                 }
-                if ($img == !NULL && $img !== " ") {
+                if (file_exists("./upload/" . $img)) {
                     unlink('./upload/' . $img);
                     unlink('./upload/thumb_' . $img);
                 }
@@ -360,7 +356,6 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
-
     function editnews($id = NULL) {
         if ($this->session->userdata('is_logged_in')) {
             $data['news_id'] = $this->db_model->all_news_id($id);
@@ -373,10 +368,9 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
-
     function news_update() {
         if ($this->session->userdata('is_logged_in')) {
-            $config['upload_path'] = './upload/';
+            $config['upload_path'] = './upload/';            
             $config['allowed_types'] = 'gif|jpg|png';
             $this->load->library('upload', $config);
             $this->load->library('form_validation');
@@ -384,7 +378,6 @@ class Dashboard extends CI_Controller {
             $this->form_validation->set_rules('title', 'Title', 'required|min_length[5]');
             $this->form_validation->set_rules('summary', 'Summary', 'required|min_length[5]');
             $this->form_validation->set_rules('category[]', 'Categories', 'required');
-
             if ($this->form_validation->run() == FALSE) {
                 $id = $this->input->post('id');
                 $data['news_id'] = $this->db_model->all_news_id($id);
@@ -416,8 +409,8 @@ class Dashboard extends CI_Controller {
                     $config['source_image'] = './upload/' . $image;
                     $config['new_image'] = $image_thumb;
                     $config['maintain_ratio'] = TRUE;
-                    $config['width'] = 75;
-                    $config['height'] = 50;
+                    $config['width'] = 225;
+                    $config['height'] = 150;
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();
                     $id = $this->input->post('id');
@@ -435,7 +428,6 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
-
     function insert_news() {
         if ($this->session->userdata('is_logged_in')) {
             $config['upload_path'] = './upload/';
@@ -460,9 +452,12 @@ class Dashboard extends CI_Controller {
                     $day = date('d');
                     $cal = $this->eng_to_nep($year, $month, $day);
                     $string = word_limiter($this->input->post('summary'), 10);
+                   // $content = "this is something with an <img src=\"test.png\"/> in it.";
+                    $content = preg_replace("/<img[^>]+\>/i", "(image) ", $string);
+                    //die($content);
                     $english_conversion = $cal['year'] . '-' . $cal['month'] . '-' . $cal['date'] . ' ( ' . $cal['nmonth'] . '/' . $cal['day'] . ' )';
                     $image = " ";
-                    $data = array('title' => $this->input->post('title'), 'summary' => $this->input->post('summary'), 'image' => $image, 'c_id' => $chkegory, 'time' => $english_conversion,'limit_summary'=>$string);
+                    $data = array('title' => $this->input->post('title'), 'summary' => $this->input->post('summary'), 'image' => $image, 'c_id' => $chkegory, 'time' => $english_conversion, 'limit_summary' => $content);
                     $this->db_model->insert_news($data);
                     $this->session->set_flashdata('msg', 'One news added sucessfully');
                     redirect('dashboard/add_news');
@@ -474,6 +469,7 @@ class Dashboard extends CI_Controller {
                     $month = date('m');
                     $day = date('d');
                     $string = word_limiter($this->input->post('summary'), 10);
+                    $content = preg_replace("/<img[^>]+\>/i", "(image) ", $string);
                     $cal = $this->eng_to_nep($year, $month, $day);
                     $english_conversion = $cal['year'] . '-' . $cal['month'] . '-' . $cal['date'] . ' ( ' . $cal['nmonth'] . '/' . $cal['day'] . ' )';
                     $dataimg = array('upload_data' => $this->upload->data());
@@ -483,11 +479,11 @@ class Dashboard extends CI_Controller {
                     $config['source_image'] = './upload/' . $image;
                     $config['new_image'] = $image_thumb;
                     $config['maintain_ratio'] = TRUE;
-                    $config['width'] = 75;
-                    $config['height'] = 50;
+                   $config['width'] = 225;
+                    $config['height'] = 150;
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();
-                    $data = array('title' => $this->input->post('title'), 'summary' => $this->input->post('summary'), 'image' => $image, 'c_id' => $chkegory,'time'=>$english_conversion,'limit_summary'=>$string);
+                    $data = array('title' => $this->input->post('title'), 'summary' => $this->input->post('summary'), 'image' => $image, 'c_id' => $chkegory, 'time' => $english_conversion, 'limit_summary' => $content);
                     $result = $this->db_model->insert_news($data);
                     if ($result == TRUE) {
                         $this->session->set_flashdata('msg', "News Added Successfully");
@@ -501,7 +497,6 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
-
     //============== END NEWS PART =============================
     //============== STATR CATERORIES PART======================
     public function all_categories() {
@@ -515,7 +510,6 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
-
     public function add_categories() {
         if ($this->session->userdata('is_logged_in')) {
             $this->load->view('dashboard/design/header');
@@ -526,7 +520,6 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
-
     public function insert_categories() {
         if ($this->session->userdata('is_logged_in')) {
             $this->load->library('form_validation');
@@ -551,7 +544,6 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
-
     function deletecat($id = NULL) {
         if ($this->session->userdata('is_logged_in')) {
             if (isset($id)) {
@@ -569,7 +561,6 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
-
     function editcate($id = NULL) {
         if ($this->session->userdata('is_logged_in')) {
             $data['cat_id'] = $this->db_model->all_cat_id($id);
@@ -581,7 +572,6 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
-
     function update_cat() {
         if ($this->session->userdata('is_logged_in')) {
             $this->load->library('form_validation');
@@ -611,23 +601,22 @@ class Dashboard extends CI_Controller {
             redirect('login');
         }
     }
-    
     //=================== START ADVERTISEMENT PART =============================================//
-    function add_adv()
-    {
+    function add_adv() {
         if ($this->session->userdata('is_logged_in')) {
-        $this->load->view('dashboard/design/header');
-                $this->load->view('dashboard/design/left');
-                $this->load->view('dashboard/adv/add');
-                $this->load->view('dashboard/design/footer');
-    }else{
-        redirect('login');
+            $this->load->view('dashboard/design/header');
+            $this->load->view('dashboard/design/left');
+            $this->load->view('dashboard/adv/add');
+            $this->load->view('dashboard/design/footer');
+        } else {
+            redirect('login');
+        }
     }
-    }
-    function insert_adv()
-    {
+    function insert_adv() {
         if ($this->session->userdata('is_logged_in')) {
             $config['upload_path'] = './upload/';
+            $config['max_width'] = '620';
+            $config['max_size'] = '500';            
             $config['allowed_types'] = 'gif|jpg|png';
             $this->load->library('upload', $config);
             $this->load->library('form_validation');
@@ -635,16 +624,15 @@ class Dashboard extends CI_Controller {
             $this->form_validation->set_rules('location[]', 'Location', 'required');
             if ($this->form_validation->run() == FALSE) {
                 $this->session->set_flashdata('msg', "Please select at least one location");
-                        redirect('dashboard/add_adv');
-                
+                redirect('dashboard/add_adv');
             } else {
                 if (!$this->upload->do_upload()) {
-                    $error = $this->upload->display_errors();
-                   // die($e)
+                    $data['errors'] = $this->upload->display_errors();
+                    // die($e)
                     $this->load->view('dashboard/design/header');
-                $this->load->view('dashboard/design/left');
-                $this->load->view('dashboard/adv/add');
-                $this->load->view('dashboard/design/footer');
+                    $this->load->view('dashboard/design/left');
+                    $this->load->view('dashboard/adv/add',$data);
+                    $this->load->view('dashboard/design/footer');
                 } else {
                     $dataimg = array('upload_data' => $this->upload->data());
                     $image = $dataimg['upload_data']['file_name'];
@@ -653,12 +641,12 @@ class Dashboard extends CI_Controller {
                     $config['source_image'] = './upload/' . $image;
                     $config['new_image'] = $image_thumb;
                     $config['maintain_ratio'] = TRUE;
-                    $config['width'] = 75;
-                    $config['height'] = 50;
+                    //$config['width'] = 225;
+                    $config['height'] = 300;
                     $cate = $this->input->post('location');
                     // $checkbox1=$_POST['techno'];
                     $location = implode(",", $cate);
-                    //die($location); 
+                    //die($location);
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();
                     $data = array('image' => $image, 'location' => $location);
@@ -669,35 +657,34 @@ class Dashboard extends CI_Controller {
                     } else {
                         $this->session->set_flashdata('msg', "Please Fill up all data!");
                     }
-        }}}
-                
-        else{
+                }
+            }
+        } else {
             redirect('login');
         }
     }
-            function all_adv()
-    {if ($this->session->userdata('is_logged_in')) {
-        $data['adv'] = $this->db_model->all_adv();
-                $this->load->view('dashboard/design/header');
-                $this->load->view('dashboard/design/left');
-                $this->load->view('dashboard/adv/list',$data);
-                $this->load->view('dashboard/design/footer');
-    }  else {
-        redirect('login');  
-    }}
-    
-function delete_adv($id=NULL)
-{
-    if ($this->session->userdata('is_logged_in')) {
+    function all_adv() {
+        if ($this->session->userdata('is_logged_in')) {
+            $data['adv'] = $this->db_model->all_adv();
+            $this->load->view('dashboard/design/header');
+            $this->load->view('dashboard/design/left');
+            $this->load->view('dashboard/adv/list', $data);
+            $this->load->view('dashboard/design/footer');
+        } else {
+            redirect('login');
+        }
+    }
+    function delete_adv($id = NULL) {
+        if ($this->session->userdata('is_logged_in')) {
             if (isset($id)) {
                 $data['adv_id'] = $this->db_model->all_adv_id($id);
                 foreach ($data['adv_id'] as $a) {
                     $img = $a->image;
                 }
-                if (file_exists("./upload/".$img)) {
+                if (file_exists("./upload/" . $img)) {
                     unlink('./upload/' . $img);
                     unlink('./upload/thumb_' . $img);
-                    }                
+                }
                 $result = $this->db_model->deladv($id);
                 if ($result == TRUE) {
                     $this->session->set_flashdata('msg', "Advertisement Delete Successfully");
@@ -711,12 +698,10 @@ function delete_adv($id=NULL)
         } else {
             redirect('login');
         }
-}
-
-function edit_adv($id)
-{
-     if ($this->session->userdata('is_logged_in')) {
-            $data['adv_id'] = $this->db_model->all_adv_id($id);            
+    }
+    function edit_adv($id) {
+        if ($this->session->userdata('is_logged_in')) {
+            $data['adv_id'] = $this->db_model->all_adv_id($id);
             $this->load->view('dashboard/design/header');
             $this->load->view('dashboard/design/left');
             $this->load->view('dashboard/adv/edit', $data);
@@ -724,47 +709,39 @@ function edit_adv($id)
         } else {
             redirect('login');
         }
-}
+    }
     //====================== CLOSED ADVERTISEMENT PART ============================================== //
     //======================= START MEDIA PART ======================================================//
-    function all_media()
-    {
-       if ($this->session->userdata('is_logged_in')) {
-           $data['files'] = $this->db_model->all_file();
-        $this->load->view('dashboard/design/header');
-                $this->load->view('dashboard/design/left');
-                $this->load->view('dashboard/media/list',$data);
-                $this->load->view('dashboard/design/footer');
-    }  else {
-        redirect('login');  
-    } 
+    function all_media() {
+        if ($this->session->userdata('is_logged_in')) {
+            $data['files'] = $this->db_model->all_file();
+            $this->load->view('dashboard/design/header');
+            $this->load->view('dashboard/design/left');
+            $this->load->view('dashboard/media/list', $data);
+            $this->load->view('dashboard/design/footer');
+        } else {
+            redirect('login');
+        }
     }
-    
-    function delimg($id=NULL)
-    {
+    function delimg($id = NULL) {
         $data['files'] = $this->db_model->all_file_id($id);
-    if(!empty($data['files']))
-    {
-        foreach ($data['files'] as $fl)
-        {
-            $file = $fl->file_name;
+        if (!empty($data['files'])) {
+            foreach ($data['files'] as $fl) {
+                $file = $fl->file_name;
+            }
+            if (file_exists('./upload/' . $file)) {
+                unlink('./upload/' . $file);
+            }
+            $result = $this->db_model->delimg($id);
+            if ($result == TRUE) {
+                $this->session->set_flashdata('msg', "Image Delete Successfully");
+            } else {
+                $this->session->set_flashdata('msg', "Image Not Delete ");
+            }
+            redirect('dashboard/all_media');
+        } else {
+            echo 'Sorry file not found';
         }
-        if(file_exists('./upload/'.$file))
-        {
-            unlink('./upload/'.$file);
-        }
-       $result = $this->db_model->delimg($id);
-         if ($result == TRUE) {
-                    $this->session->set_flashdata('msg', "Image Delete Successfully");
-                } else {
-                    $this->session->set_flashdata('msg', "Image Not Delete ");
-         }
-         redirect('dashboard/all_media');
-    }
-    else{
-        echo 'Sorry file not found';
-    }
-        
     }
     //======================= CLOSED MEDIA PART ==================================================//
 }

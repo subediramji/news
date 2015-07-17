@@ -34,7 +34,7 @@
     {
         $id = '16';
         $this->db->order_by("id", "desc");
-        $this->db->where('c_id',$id);
+        $this->db->like('c_id',$id);
         $query = $this->db->get('news',6);
         return $query->result();
         
@@ -43,7 +43,7 @@
     {
         $id = '17';
         $this->db->order_by("id", "desc");
-        $this->db->where('c_id',$id);
+        $this->db->like('c_id',$id);
         $query = $this->db->get('news',5);
         return $query->result();
     }
@@ -51,7 +51,7 @@
     function getTechnology()
     {
         $id = '14';
-        $this->db->where('c_id',$id);
+        $this->db->like('c_id',$id);
         $this->db->order_by("id", "desc");
         $query = $this->db->get('news',3);
         return $query->result();
@@ -68,7 +68,7 @@
     {
         $id = '19';
         $this->db->order_by("id", "desc");
-        $this->db->where('c_id',$id);
+        $this->db->like('c_id',$id);
         $query = $this->db->get('news',3);
         return $query->result();
     }
@@ -77,7 +77,7 @@
     {
         $id = '18';
         $this->db->order_by("id", "desc");
-        $this->db->where('c_id',$id);
+        $this->db->like('c_id',$id);
         $query = $this->db->get('news',3);
         return $query->result();
     }
@@ -86,7 +86,7 @@
     {
         $id = '20';
         $this->db->order_by("id", "desc");
-        $this->db->where('c_id',$id);
+        $this->db->like('c_id',$id);
         $query = $this->db->get('news',3);
         return $query->result();
     }
@@ -94,7 +94,7 @@
     {
         $id = '21';
         $this->db->order_by("id", "desc");
-        $this->db->where('c_id',$id);
+        $this->db->like('c_id',$id);
         $query = $this->db->get('news',3);
         return $query->result();
     }
@@ -244,6 +244,35 @@ function culture()
         $this->db->like('location', "2");
         $result = $this->db->get('adv',2);
         return $result->result();
+    }
+    
+    //====================== view count ===================================//
+    
+    function find_page($id)
+    {
+        //$this->db->select('page');
+        $this->db->where('page',$id);
+        $result = $this->db->get('hits');
+        return $result->result();
+    }
+    
+    function update_view($id)
+    {
+        $this->db->where('page',$id);
+        $this->db->set('count', 'count+1',FALSE);
+        $this->db->update('hits');
+    }
+    
+    function add_ipDetail($ip,$agent,$datetime)
+    {
+        $data = array('ip_address'=>$ip,'user_agent'=>$agent,'datetime'=>$datetime);
+        $this->db->insert('info',$data);
+    }
+            
+    function insert_view($id)
+    {
+        $this->db->where('page',$id);
+        $this->db->insert('hits',array('count'=>'1','page'=>$id));
     }
 
 }

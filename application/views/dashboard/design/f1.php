@@ -11,7 +11,6 @@
 <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/jquery.cookie.js"></script>
 <script src='<?php echo base_url(); ?>assets/js/fullcalendar.min.js'></script>
-<script src='<?php echo base_url(); ?>assets/js/jquery.dataTables.min.js'></script>
 <script src="<?php echo base_url(); ?>assets/js/excanvas.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/jquery.flot.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/jquery.flot.pie.js"></script>

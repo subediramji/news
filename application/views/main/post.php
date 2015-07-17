@@ -8,38 +8,14 @@
 		        </div></div> 
 				<!-- Article / Start -->
 				<article class="hentry post">
-
 					<h1 class="entry-title"><?php echo $idnews[0]->title; ?></h1>
-
-					<div class="entry-meta">
-						<span class="entry-author"><i class="fa fa-user"></i> <a href="">ramji</a></span>
-						<span class="entry-date"><i class="fa fa-clock-o"></i> <?php echo $idnews[0]->time; ?> </span>
-						<span class="entry-comment"><i class="fa fa-comments"></i> <a href="#comments"></a></span>
-						<span class="entry-tags"><i class="fa fa-tags"></i> <a href="#"></a>, <a href="#"></a></span>						
-					</div>
-
                                         <img class="entry-thumbnail" src="<?php echo base_url()."upload/".$idnews[0]->image; ?>" style="width: 610px;" alt="image">
-
+                                        <span class="entry-date" style="color: black;"><i class="fa fa-clock-o"></i> <?php echo $idnews[0]->time; ?> </span>
 					<div class="entry-content">
-
-                                            <p><?php echo $idnews[0]->summary; ?></p>																		
-
-<!--			        <div class="related-posts">
-			        	<h3>You might also like:</h3>
-			        	<ul class="clearfix">
-			        		<li><a href="http://dev.theme-junkie.com/html/supernews/post_reviews.html"><img src="SuperNews_files/1-344x193.jpg" alt=""><h2 class="entry-title">Local ice cream shop grand opening (reviews)</h2></a></li>
-			        		<li><a href="http://dev.theme-junkie.com/html/supernews/post_full.html"><img src="SuperNews_files/3-344x193.jpg" alt=""><h2 class="entry-title">Sailor's ship was hit by kamikaze (full width)</h2></a></li>
-			        		<li><a href="http://dev.theme-junkie.com/html/supernews/post_video.html"><img src="SuperNews_files/5-344x193.jpg" alt=""><h2 class="entry-title">Tips for your house painting project (video)</h2></a></li>
-			        		<li><a href="http://dev.theme-junkie.com/html/supernews/post_gallery.html"><img src="SuperNews_files/7-344x193.jpg" alt=""><h2 class="entry-title">Big plans for Seaview Marina (gallery)</h2></a></li>					        
-			        	</ul>
-			        </div> .related-posts 						-->
-
+                                            <p><h5><?php echo $idnews[0]->summary; ?></h5></p>																		
 					<div class="clearfix"></div>
-
 				</article>
 				<!-- Article / End --> 
-					
-
 			</div>
 <?php }else{echo 'Data not fount';} ?>
 			<!-- Primary / End -->	

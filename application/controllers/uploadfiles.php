@@ -1,25 +1,18 @@
 <?php if (!defined('BASEPATH'))   exit('No direct script access allowed');
-
 class UploadFiles extends CI_Controller {
-
     private $error;
     private $success;
-
     function __construct() {
         parent::__construct();
-
         $this->load->library('form_validation');
         $this->load->model('file_model', 'file');
     }
-
     private function handle_error($err) {
         $this->error .= $err . "\r\n";
     }
-
     private function handle_success($succ) {
         $this->success .= $succ . "\r\n";
     }
-
     function index() {
        // die('yes');
         //date_default_timezone_set('Asia/kathamandu');
@@ -28,15 +21,15 @@ class UploadFiles extends CI_Controller {
             $dir_path = './upload/';
             $config['upload_path'] = $dir_path;
             $config['allowed_types'] = '*';
-            $config['max_size'] = '1000';
+            $config['max_width'] = '610';
+            $config['max_size'] = '500';            
+           // $config['height'] = 150;
             $config['max_filename'] = '255';
             //$config['encrypt_name'] = TRUE;
-
             //upload file
             $i = 0;
             $files = array();
             $is_file_error = FALSE;
-
             if ($_FILES['upload_file1']['size'] <= 0) {
                 $this->handle_error('Select at least one file.');
             } else {
@@ -53,7 +46,6 @@ class UploadFiles extends CI_Controller {
                     }
                 }
             }
-
             // There were errors, we have to delete the uploaded files
             if ($is_file_error && $files) {
                 for ($i = 0; $i < count($files); $i++) {
@@ -64,8 +56,7 @@ class UploadFiles extends CI_Controller {
                     }
                 }
             }
-
-            if (!$is_file_error && $files) {
+           if (!$is_file_error && $files) {
                 //var_dump($files);
                 $resp = $this->file->save_files_info($files);
                 if ($resp === TRUE) {
@@ -90,8 +81,4 @@ class UploadFiles extends CI_Controller {
                 $this->load->view('dashboard/media/list',$data);
                 $this->load->view('dashboard/design/footer');
     }
-
-}
-
-/* End of file uploadfiles.php */
-/* Location: ./application/controllers/uploadfiles.php */
+}/* End of file uploadfiles.php // Location: ./application/controllers/uploadfiles.php */

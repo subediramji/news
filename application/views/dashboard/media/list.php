@@ -27,6 +27,7 @@
             <fieldset>
                 <legend>Upload Multiple File(s)</legend>
                 <section>
+                    <strong>Note : File size width not larger then 610 pixel </strong>
                     <label>Browse a file</label>
                     <label>
                         <input type="file" name="upload_file1" class="btn btn-default" id="upload_file1" readonly="true"/>
@@ -96,9 +97,24 @@
 </div>
 	</div><!--/#content.span10-->
 		</div>
-<!--                <script>
+                <div class="imgdiv" style="background: #fff;display: none; width: 400px; height: 120px; border: #006633 solid 5px; position: fixed; top:220px; left:520px;">
+                    <div style="background: #096;">  <strong>Copy this link and paste where you want this image</strong><a id="close"  class="btn btn-danger"style="margin-left: 12px;color: #fff;padding: 5px;border-radius:5px !important;">X </a><br><br> </div>
+                     <textarea rows="2" style="width: 385px !important;font-size: 16px;"><img src="" /></textarea>
+                </div>
+              <script>
                      $(document).ready(function() {
-                         $('.delete_img').click(function(){
-                            alert($(this).attr('id'));
+                         $('img').click(function(){
+                            var a = ($(this).attr('src'));
+                            var image = a;
+                            $('#content').css('opacity','.5');
+                            $('.imgdiv').css('display','block');
+                            $('.imgdiv').css('opacity','1');
+                            $('textarea').html(image);
+                           // alert(image);
                          });
-                     });                    </script>-->
+                         $('#close').click(function(){
+                              $('#content').css('opacity','1');
+                            $('.imgdiv').css('display','none');
+                            //$('.imgdiv').css('opacity','1');
+                         });
+                     });                    </script>

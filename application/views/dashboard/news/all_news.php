@@ -24,6 +24,12 @@
 					</div>
                                   
 					<div class="box-content">
+                                            <p id="renderingEngineFilter"></p>
+<!--                                            <div class="dataTables_filter" id="DataTables_Table_0_filter">
+<label>filter: 
+<input type="text" aria-controls="DataTables_Table_1">
+</label>
+</div>-->
                                             <table class="table table-striped table-bordered bootstrap-datatable datatable">
 						<thead>
 							  <tr>
@@ -32,6 +38,7 @@
 								  <th>Summary</th>
 								  <th>Image</th>
                                                                   <th>Categories</th>
+                                                                  <th>Page View</th>
 								  <th>Actions</th>
 							  </tr>
 						  </thead>   
@@ -42,8 +49,8 @@
     <tr>
         
         <td class="center"><?php echo $news->title;?></td>
-        <td class="center"><?php echo $news->summary;?></td>
-        <td class="center"> <img src="<?php if($news->image==" "){}else{ echo base_url()."upload/thumb_".$news->image;}?>" alt="image" /></td>
+        <td class="center"><?php echo $news->limit_summary;?></td>
+        <td class="center"> <img src="<?php if($news->image==" "){}else{ echo base_url()."upload/thumb_".$news->image;}?>" alt="image" style="width: 150px;height: 100px;"/></td>
         <td class="center">
             <?php
             $category = explode(",",$news->c_id);
@@ -60,6 +67,15 @@
              }
             
             ?>
+        </td>
+        <td class="center">
+            <?php $view = $this->db_model->find_page($news->id);
+            if(!empty($view)){
+                foreach ($view as $v)
+                {
+                    echo $v->count;
+                }
+            }else{echo '0';}?>
         </td>
         <td class="center">
              <a class="btn btn-inverse" href="<?php echo base_url()."view/post/".$news->id; ?>">
