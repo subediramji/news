@@ -14,7 +14,7 @@
                         <ul>
                             <?php foreach ($latest as $lest) { ?>
                             <li>
-                                <a href="<?php echo base_url()."view/post/".$lest->id; ?>" rel="bookmark"><img src="<?php echo base_url()."upload/thumb_".$lest->image; ?>" class="entry-thumbnail" alt="Post Title"></a>
+                                <a href="<?php echo base_url()."view/post/".$lest->id; ?>" rel="bookmark"><img src="<?php echo base_url()."upload/thumb_".$lest->image; ?>" class="entry-thumbnail" style="width: 150px;height: 100px;" alt="Post Title"></a>
                                 <a href="<?php echo base_url()."view/post/".$lest->id; ?>" rel="bookmark"><?php echo $lest->title; ?></a>
                                 <div class="entry-meta">
                                     <span class="entry-date"><?php echo $lest->time; ?></span>
@@ -81,10 +81,10 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/view/js/superfish.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/view/js/jquery_005.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/view/js/jquery_002.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>assets/view/js/retina.js"></script>
+<!--        <script type="text/javascript" src="<?php echo base_url(); ?>assets/view/js/retina.js"></script>-->
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/view/js/jquery_006.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/view/js/jquery_003.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/view/js/jquery_007.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>assets/view/js/analytics.js"></script><!-- FOR DEMO ONLY -->
+<!--        <script type="text/javascript" src="<?php echo base_url(); ?>assets/view/js/analytics.js"></script> FOR DEMO ONLY -->
               
        </body></html>

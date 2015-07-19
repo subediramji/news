@@ -139,5 +139,5 @@ $(window).load(function(){
 </div>
     </div>
     </div>
-	</div><!--/#content.span10-->
+ 	</div><!--/#content.span10-->
 		</div>

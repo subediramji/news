@@ -38,16 +38,21 @@ class View extends CI_Controller {
     public function post($id = NULL) {
         if ($id == !NULL) {
             $this->addinfo($id);
-            $ip = $_SERVER["REMOTE_ADDR"];
-            $agent = $_SERVER["HTTP_USER_AGENT"];
-            $datetime = date("Y/m/d") . ' ' . date('H:i:s');
-            $this->addViewDetail($ip, $agent, $datetime);
+            //$ip = $_SERVER["REMOTE_ADDR"];
+            //$agent = $_SERVER["HTTP_USER_AGENT"];
+            //$datetime = date("Y/m/d") . ' ' . date('H:i:s');
+            //$this->addViewDetail($ip, $agent, $datetime);
             $data['headlines'] = $this->db_model->getHeadlines();
             $data['latest'] = $this->db_model->letestNews();
             $data['idnews'] = $this->db_model->all_news_id($id);
             $data['cate'] = $this->db_model->all_cat();
             $data['advt'] = $this->db_model->advt();
-        $data['advs'] = $this->db_model->advs();
+            $data['advs'] = $this->db_model->advs();
+            if(!empty($data['idnews'][0]->c_id)){
+            $catid = substr($data['idnews'][0]->c_id, 0, 2);
+            $data['pnews'] = $this->db_model->all_news_cate_id_limit($catid);
+            }
+           
             $this->load->view('main/design/header', $data);
             $this->load->view('main/post', $data);
             $this->load->view('main/design/right', $data);

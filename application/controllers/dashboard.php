@@ -649,7 +649,7 @@ class Dashboard extends CI_Controller {
                     //die($location);
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();
-                    $data = array('image' => $image, 'location' => $location);
+                    $data = array('image' => $image, 'location' => $location,'link'=>  $this->input->post('url'));
                     $result = $this->db_model->insert_adv($data);
                     if ($result == TRUE) {
                         $this->session->set_flashdata('msg', "Advertisement Added Successfully");

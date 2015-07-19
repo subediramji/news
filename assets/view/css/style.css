@@ -939,6 +939,7 @@ a:active {
 	background-color: #ffffff;
 	margin-bottom: 30px;
 	position: relative;
+        
 }
 #featured-content ul li {
 	list-style: none;
@@ -947,11 +948,14 @@ a:active {
 #featured-content .entry-title {
 	font-size: 32px;
         padding: 0 20px;
+        
 }
+
 #featured-content .entry-thumbnail {
 	width: 805px;
 	height: 410px;
-	margin: 0 0px -95px -38px;
+        
+	//margin: 0 0px -95px -38px;
 }
 #featured-content #carousel-0 {
 	position: relative;

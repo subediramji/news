@@ -21,14 +21,14 @@
                                 <li>
                                     <article class="hentry clearfix">
                                         <a href="<?php echo base_url()."view/post/".$slid->id; ?>"><img class="entry-thumbnail" src="<?php echo base_url()."upload/".$slid->image; ?>" alt="image"></a>
-                                        <div style="background-color:#333; z-index: 5000;">
+                                        <div style="background-color: rgba(0,0,0,0.7); z-index: 5000;margin-top: -90px;">
                                         <h2 class="entry-title">
-                                            <a href="<?php echo base_url()."view/post/".$slid->id; ?>" rel="bookmark"><?php echo $slid->title; ?></a></h2>
+                                            <a href="<?php echo base_url()."view/post/".$slid->id; ?>" rel="bookmark" style="color: #fff;"><?php echo $slid->title; ?></a></h2>
                                         <div class="entry-meta">
                                             <span class="entry-date"><?php echo $slid->time; ?></span>
                                         </div><!-- .entry-meta -->
                                         <div class="entry-summary">
-                                            <a href="<?php echo base_url()."view/post/".$slid->id; ?>" style="color: #333;">
+                                            <a href="<?php echo base_url()."view/post/".$slid->id; ?>" style="color: #fff;font-size: 120%;">
                                             <?php echo $slid->limit_summary; ?>
                                           </a>
                                         </div><!-- .entry-summary -->
@@ -52,8 +52,8 @@
                                 <a href="<?php echo base_url()."view/post/".$tech->id; ?>"><img class="entry-thumbnail" src="<?php echo base_url()."upload/thumb_".$tech->image; ?>" alt=""></a>
                                 <h2 class="entry-title"><a href="<?php echo base_url()."view/post/".$tech->id; ?>"><?php echo $tech->title; ?></a></h2>
                                 <div class="entry-meta">
-                                    <span class="entry-date"><?php echo $tech->time; ?></span>
-                                    <span class="entry-comments"><a href="<?php echo base_url()."view/post/".$tech->id; ?>"></a></span>
+                                    <span class="entry-date" style="color:#ccc;"><?php echo $tech->time; ?></span>
+                                    
                                 </div><!-- .entry-meta -->
                                 <div class="entry-summary">
                                    <?php echo $tech->limit_summary; ?>

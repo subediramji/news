@@ -172,8 +172,13 @@ function culture()
         return $result->result();
     }
     function all_news_cate_id($id) {
-        $this->db->where('c_id', $id);
+        $this->db->like('c_id', $id);
         $result = $this->db->get('news');
+        return $result->result();
+    }
+     function all_news_cate_id_limit($id) {
+        $this->db->like('c_id', $id);
+        $result = $this->db->get('news',3);
         return $result->result();
     }
 

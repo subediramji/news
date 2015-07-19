@@ -24,9 +24,10 @@
 
 				<!-- Content / Start -->
 	            <div id="content" class="content-loop category-box grid grid2">
-
+<?php if(!empty($idcat[0]->name)){ ?>
 	                <h3 class="section-title"><strong><a href="">Categories</a> - <a href=""><?php echo $idcat[0]->name; ?></a></strong></h3>
-<?php foreach ($idcate as $cate) {?>
+<?php }if(!empty($idcate)){ ?>
+                            <?php foreach ($idcate as $cate) {?>
 	                <article style="height: 223px;" id="post-1" class="hentry post">
                             <a href="<?php echo base_url()."view/post/".$cate->id; ?>"><img class="entry-thumbnail" src="<?php echo base_url()."upload/thumb_".$cate->image; ?>" alt="image"></a>
 	                    <h2 class="entry-title"><a href="<?php echo base_url()."view/post/".$cate->id; ?>"><?php echo $cate->title; ?></a></h2>
@@ -42,7 +43,7 @@
 		                    <a href="<?php echo base_url()."view/post/".$cate->id; ?>">more</a>
 		                </div><!-- .more-link -->	 	                    
 	                </article>
-<?php } ?>
+<?php }}else{echo 'Sorry data not found';} ?>
 	                <div class="clearfix"></div>
 
 <!--	                <nav class="pagination">
@@ -59,6 +60,7 @@
 
 	            </div>
 	            <!-- Content / End -->
+                    
 
 			</div>
 			<!-- Primary / End -->

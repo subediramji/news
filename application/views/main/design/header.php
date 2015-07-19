@@ -30,7 +30,7 @@
                 <?php 
                 if(!empty($advt)){foreach ($advt as $at) { // size 619*90?>
                 <div class="header-ad">
-                    <a href="#"><img alt="" style="width:619px;height: 90px;" src="<?php echo base_url()."/upload/".$at->image; ?>"></a>
+                    <a href="<?php echo $at->link; ?>"><img alt="" class="entry-thumbnail" style="height: 90px;" src="<?php echo base_url()."/upload/".$at->image; ?>"></a>
 			</div>
                 <?php }}?>
                 <div class="clearfix"></div>
